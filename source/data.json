@@ -312,7 +312,7 @@
         {
           "name": "HyperBowl",
           "interactive": true,
-          "standalone": true,
+          "standalone": false,
           "sub": true,
           "neofi": true
         },
@@ -326,7 +326,7 @@
         {
           "name": "Avatar Alley",
           "interactive": true,
-          "standalone": true,
+          "standalone": false,
           "sub": true,
           "neofi": true
         },
@@ -410,14 +410,14 @@
         {
           "name": "Monster Birthday",
           "interactive": true,
-          "standalone": true,
+          "standalone": false,
           "sub": true,
           "neofi": true
         },
         {
           "name": "Monster Gallery",
           "interactive": true,
-          "standalone": true,
+          "standalone": false,
           "sub": true,
           "neofi": true
         },
