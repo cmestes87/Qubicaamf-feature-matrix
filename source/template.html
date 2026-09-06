@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QubicaAMF Feature Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0F1424;
+    --panel: #171D33;
+    --panel-alt: #1D2440;
+    --border: #2A3152;
+    --text: #EDEFF7;
+    --text-muted: #8992B0;
+    --text-faint: #565E7E;
+
+    --amber: #FFB454;      /* BES NV family accent */
+    --amber-dim: #7A5A2E;
+    --violet: #9C8CFF;     /* Neoverse family accent */
+    --violet-dim: #4C4480;
+
+    --ok: #3DDC97;
+    --neofi: #FF6FC6;
+    --lost: #F0708A;
+    --lost-dim: #5C3440;
+
+    --radius: 10px;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(156,140,255,0.12), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 85% 0%, rgba(255,180,84,0.10), transparent 60%);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 22px;
+  }
+  .brand{
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+  }
+  .brand .kicker{
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  .brand h1{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .brand h1 .accent{
+    color: var(--current-accent, var(--amber));
+    transition: color .25s ease;
+  }
+
+  .family-tabs{
+    display:flex;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 5px;
+    border-radius: 999px;
+  }
+  .family-tab{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .family-tab:hover{ color: var(--text); }
+  .family-tab.active{
+    background: var(--current-accent, var(--amber));
+    color: #10131F;
+  }
+
+  /* ---------- Controls ---------- */
+  .controls{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .tier-group{
+    display:flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tier-btn{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .tier-btn:hover{ color: var(--text); border-color: var(--current-accent); }
+  .tier-btn.active{
+    background: var(--panel-alt);
+    color: var(--text);
+    border-color: var(--current-accent, var(--amber));
+    box-shadow: 0 0 0 1px var(--current-accent, var(--amber)) inset;
+  }
+  .tier-btn.compare-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  .right-controls{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .search-box{
+    position:relative;
+  }
+  .search-box input{
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px 10px 34px;
+    border-radius: var(--radius);
+    width: 200px;
+    outline: none;
+    transition: border-color .15s ease, width .2s ease;
+  }
+  .search-box input:focus{ border-color: var(--current-accent, var(--amber)); width: 230px; }
+  .search-box input::placeholder{ color: var(--text-faint); }
+  .search-box::before{
+    content: '';
+    position:absolute;
+    left: 12px; top: 50%;
+    width: 12px; height: 12px;
+    transform: translateY(-50%);
+    border: 1.5px solid var(--text-faint);
+    border-radius: 50%;
+    pointer-events:none;
+  }
+  .search-box::after{
+    content:'';
+    position:absolute;
+    left: 20.5px; top: 21px;
+    width: 6px; height: 1.5px;
+    background: var(--text-faint);
+    transform: rotate(45deg);
+    pointer-events:none;
+  }
+
+  .sub-toggle{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  .sub-toggle .label{
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .sub-toggle .label b{ color: var(--text); font-weight:600; }
+  .switch{
+    position:relative;
+    width: 46px;
+    height: 26px;
+    border-radius: 999px;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: background .2s ease;
+  }
+  .switch.on{ background: var(--ok); border-color: var(--ok); }
+  .switch .knob{
+    position:absolute;
+    top: 2px; left: 2px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: left .2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+  .switch.on .knob{ left: 22px; }
+  .sub-status{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(61,220,151,0.14);
+    color: var(--ok);
+  }
+  .sub-status.off{
+    background: rgba(255,111,111,0.14);
+    color: #FF7A7A;
+  }
+
+  /* ---------- Compare header ---------- */
+  .compare-heads{
+    display:none;
+    grid-template-columns: 1fr 118px 118px;
+    gap: 10px;
+    padding: 0 14px 10px;
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .compare-heads.show{ display:grid; }
+  .compare-heads span{ text-align:center; }
+  .compare-heads span:first-child{ text-align:left; }
+
+  /* ---------- Categories ---------- */
+  .category{ margin-bottom: 28px; }
+  .category-title{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--current-accent, var(--amber));
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  .category-title::after{
+    content:'';
+    flex:1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+  .category-count{
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+
+  /* solo chip grid */
+  .chip-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap: 7px;
+    padding: 9px 13px;
+    border-radius: var(--radius);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+    transition: opacity .2s ease, border-color .2s ease;
+  }
+  .chip .dot{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--ok);
+    flex-shrink:0;
+  }
+  .chip.locked{
+    opacity: 0.7;
+    color: var(--lost);
+    background: rgba(240,112,138,0.07);
+    border-color: var(--lost-dim);
+  }
+  .chip.locked .dot{ background: var(--lost); }
+  .chip.locked .name{ }
+  .chip.neofi{ border-color: var(--neofi); }
+  .chip.neofi .dot{ background: var(--neofi); }
+  .chip .spark{
+    color: var(--neofi);
+    font-size: 12px;
+    line-height:1;
+  }
+  .chip.locked .spark{ color: var(--lost); opacity: 0.85; }
+  .chip .sub-flag{
+    font-size: 10px;
+    color: var(--amber);
+    border: 1px solid var(--amber-dim);
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-weight:600;
+    letter-spacing: .02em;
+  }
+  .chip.locked .sub-flag{ color: var(--lost); border-color: var(--lost-dim); }
+
+  /* compare rows */
+  .compare-row{
+    display:grid;
+    grid-template-columns: 1fr 118px 118px;
+    gap: 10px;
+    align-items:center;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+  }
+  .compare-row:nth-child(odd){ background: rgba(255,255,255,0.02); }
+  .compare-row .fname{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .compare-row .fname .spark{ color: var(--neofi); font-size: 12px; }
+  .compare-cell{ text-align:center; }
+  .mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight:700;
+  }
+  .mark.yes{ background: rgba(61,220,151,0.16); color: var(--ok); }
+  .mark.yes.locked{ background: rgba(240,112,138,0.14); color: var(--lost); opacity: .9; }
+  .mark.no{ color: var(--text-faint); }
+
+  /* ---------- Legend ---------- */
+  .legend{
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    display:flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .legend-item{ display:flex; align-items:center; gap: 7px; }
+  .legend-item .swatch{ width: 9px; height: 9px; border-radius: 50%; flex-shrink:0; }
+
+  /* ---------- Disclaimer ---------- */
+  .disclaimer{
+    margin-top: 36px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--text-faint);
+  }
+
+  .badge{ width: 38px; height: auto; flex-shrink: 0; }
+  .brand-row{ display:flex; align-items:center; gap: 14px; }
+
+  .controls-left{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .empty-state{
+    padding: 60px 20px;
+    text-align:center;
+    color: var(--text-faint);
+    font-size: 14px;
+  }
+
+  @media (max-width: 720px){
+    header{ flex-direction: column; align-items: flex-start; }
+    .controls{ flex-direction: column; align-items: flex-start; }
+    .compare-heads, .compare-row{ grid-template-columns: 1fr 70px 70px; }
+    .search-box input{ width: 150px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand-row">
+      <img class="badge" src="data:image/png;base64,__BADGE_B64__" alt="QubicaAMF">
+      <div class="brand">
+        <span class="kicker">Sales Reference &mdash; Scoring &amp; Entertainment Systems</span>
+        <h1>Feature <span class="accent">Matrix</span></h1>
+      </div>
+    </div>
+    <div class="family-tabs" id="familyTabs">
+      <button class="family-tab" data-family="besnv">BES NV</button>
+      <button class="family-tab" data-family="neoverse">Neoverse</button>
+    </div>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--ok)"></span> Included</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--lost)"></span> Lost if subscription lapses</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--neofi)"></span> &#10022; Neo&#8209;Fi &mdash; enhanced when the center also runs the paired system</div>
+    <div class="legend-item">Toggle subscription off to preview what a center loses if it doesn't renew.</div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-left">
+      <div class="tier-group" id="tierGroup"></div>
+    </div>
+    <div class="right-controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search features&hellip;">
+      </div>
+      <div class="sub-toggle">
+        <span class="label">Subscription</span>
+        <div class="switch on" id="subSwitch"><div class="knob"></div></div>
+        <span class="sub-status" id="subStatus">Active</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-heads" id="compareHeads">
+    <span>Feature</span>
+    <span id="compareHeadA"></span>
+    <span id="compareHeadB"></span>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="disclaimer">
+    This site is an unofficial, limited-liability matrix compiled by a QubicaAMF employee but is not housed on an official QubicaAMF server. This information should only be used in conjunction with the QubicaAMF sales team and should not be provided directly to centers. This matrix is not an official document but is meant to be an accurate representation of product features. This site can not be used for contract purposes, and no damages will be incurred from omissions or errors.
+  </div>
+
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+
+const FAMILY_CONFIG = {
+  besnv: {
+    accent: '#FFB454',
+    dimAccent: '#7A5A2E',
+    tiers: [
+      { key: 'besnv',  label: 'BES NV',       includedKey: 'besnv', subKey: 'besnvSub' },
+      { key: 'value',  label: 'BES NV Value', includedKey: 'value', subKey: 'valueSub' },
+    ],
+    neofiNote: 'Requires BES NV + Neoverse Interactive Edition',
+  },
+  neoverse: {
+    accent: '#9C8CFF',
+    dimAccent: '#4C4480',
+    tiers: [
+      { key: 'interactive', label: 'Neoverse Interactive Edition', includedKey: 'interactive', subKey: 'sub' },
+      { key: 'standalone',  label: 'Neoverse Standalone',          includedKey: 'standalone',  subKey: 'sub' },
+    ],
+    neofiNote: 'Requires Neoverse Interactive Edition + BES NV',
+  }
+};
+
+const CATEGORIES = {
+  besnv: DATA.besnv,
+  neoverse: DATA.neoverse,
+};
+
+const state = {
+  family: 'besnv',
+  mode: 'solo',       // 'solo' | 'compare'
+  soloTier: 'besnv',  // active tier key when mode === 'solo'
+  subscriptionOn: true,
+  query: '',
+};
+
+function setAccent(){
+  const cfg = FAMILY_CONFIG[state.family];
+  document.documentElement.style.setProperty('--current-accent', cfg.accent);
+  document.documentElement.style.setProperty('--current-accent-dim', cfg.dimAccent);
+}
+
+function renderFamilyTabs(){
+  document.querySelectorAll('.family-tab').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.family === state.family);
+  });
+}
+
+function renderTierGroup(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const el = document.getElementById('tierGroup');
+  el.innerHTML = '';
+  cfg.tiers.forEach(t=>{
+    const b = document.createElement('button');
+    b.className = 'tier-btn' + ((state.mode==='solo' && state.soloTier===t.key) ? ' active' : '');
+    b.textContent = t.label;
+    b.addEventListener('click', ()=>{
+      state.mode = 'solo';
+      state.soloTier = t.key;
+      render();
+    });
+    el.appendChild(b);
+  });
+  const cmp = document.createElement('button');
+  cmp.className = 'tier-btn compare-btn' + (state.mode==='compare' ? ' active' : '');
+  cmp.innerHTML = '&#8646; Compare Both';
+  cmp.addEventListener('click', ()=>{
+    state.mode = 'compare';
+    render();
+  });
+  el.appendChild(cmp);
+}
+
+function renderCompareHeads(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const wrap = document.getElementById('compareHeads');
+  wrap.classList.toggle('show', state.mode === 'compare');
+  document.getElementById('compareHeadA').textContent = cfg.tiers[0].label;
+  document.getElementById('compareHeadB').textContent = cfg.tiers[1].label;
+}
+
+function matchesQuery(name){
+  if(!state.query) return true;
+  return name.toLowerCase().includes(state.query.toLowerCase());
+}
+
+function renderSoloChip(item, tier){
+  const included = item[tier.includedKey];
+  if(!included) return null;
+  const subRequired = !!item[tier.subKey];
+  const locked = subRequired && !state.subscriptionOn;
+
+  const chip = document.createElement('div');
+  chip.className = 'chip' + (locked ? ' locked' : '') + (item.neofi ? ' neofi' : '');
+
+  const dot = document.createElement('span');
+  dot.className = 'dot';
+  chip.appendChild(dot);
+
+  const name = document.createElement('span');
+  name.className = 'name';
+  name.textContent = item.name;
+  chip.appendChild(name);
+
+  if(item.neofi){
+    const spark = document.createElement('span');
+    spark.className = 'spark';
+    spark.innerHTML = '&#10022;';
+    spark.title = FAMILY_CONFIG[state.family].neofiNote;
+    chip.appendChild(spark);
+  }
+
+  if(subRequired){
+    const flag = document.createElement('span');
+    flag.className = 'sub-flag';
+    flag.textContent = 'SUB';
+    chip.title = locked ? 'Lost without an active subscription' : 'Requires active subscription';
+    chip.appendChild(flag);
+  }
+
+  return chip;
+}
+
+function renderSolo(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const tier = cfg.tiers.find(t=>t.key===state.soloTier) || cfg.tiers[0];
+  const cats = CATEGORIES[state.family];
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+
+  let totalShown = 0;
+
+  cats.forEach(cat=>{
+    const matchingItems = cat.items.filter(it => it[tier.includedKey] && matchesQuery(it.name));
+    if(matchingItems.length === 0) return;
+    totalShown += matchingItems.length;
+
+    const catEl = document.createElement('div');
+    catEl.className = 'category';
+
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.innerHTML = `${cat.name} <span class="category-count">${matchingItems.length}</span>`;
+    catEl.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'chip-grid';
+    matchingItems.forEach(it=>{
+      const chip = renderSoloChip(it, tier);
+      if(chip) grid.appendChild(chip);
+    });
+    catEl.appendChild(grid);
+
+    content.appendChild(catEl);
+  });
+
+  if(totalShown === 0){
+    content.innerHTML = '<div class="empty-state">No features match your search.</div>';
+  }
+}
+
+function renderCompareRow(item){
+  const cfg = FAMILY_CONFIG[state.family];
+  const [tA, tB] = cfg.tiers;
+
+  const row = document.createElement('div');
+  row.className = 'compare-row';
+
+  const fname = document.createElement('div');
+  fname.className = 'fname';
+  const label = document.createElement('span');
+  label.textContent = item.name;
+  fname.appendChild(label);
+  if(item.neofi){
+    const spark = document.createElement('span');
+    spark.className = 'spark';
+    spark.innerHTML = '&#10022;';
+    spark.title = cfg.neofiNote;
+    fname.appendChild(spark);
+  }
+  row.appendChild(fname);
+
+  [tA, tB].forEach(tier=>{
+    const cell = document.createElement('div');
+    cell.className = 'compare-cell';
+    const included = item[tier.includedKey];
+    const subRequired = !!item[tier.subKey];
+    const locked = included && subRequired && !state.subscriptionOn;
+
+    const mark = document.createElement('span');
+    if(included){
+      mark.className = 'mark yes' + (locked ? ' locked' : '');
+      mark.textContent = locked ? '\u2715' : '\u2713';
+      if(subRequired) mark.title = locked ? 'Lost without an active subscription' : 'Requires active subscription';
+    } else {
+      mark.className = 'mark no';
+      mark.textContent = '\u2013';
+    }
+    cell.appendChild(mark);
+    row.appendChild(cell);
+  });
+
+  return row;
+}
+
+function renderCompare(){
+  const cats = CATEGORIES[state.family];
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  const cfg = FAMILY_CONFIG[state.family];
+  let totalShown = 0;
+
+  cats.forEach(cat=>{
+    const matchingItems = cat.items.filter(it =>
+      (it[cfg.tiers[0].includedKey] || it[cfg.tiers[1].includedKey]) && matchesQuery(it.name)
+    );
+    if(matchingItems.length === 0) return;
+    totalShown += matchingItems.length;
+
+    const catEl = document.createElement('div');
+    catEl.className = 'category';
+
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.innerHTML = `${cat.name} <span class="category-count">${matchingItems.length}</span>`;
+    catEl.appendChild(title);
+
+    matchingItems.forEach(it=>{
+      catEl.appendChild(renderCompareRow(it));
+    });
+
+    content.appendChild(catEl);
+  });
+
+  if(totalShown === 0){
+    content.innerHTML = '<div class="empty-state">No features match your search.</div>';
+  }
+}
+
+function renderSubToggle(){
+  const sw = document.getElementById('subSwitch');
+  const status = document.getElementById('subStatus');
+  sw.classList.toggle('on', state.subscriptionOn);
+  status.textContent = state.subscriptionOn ? 'Active' : 'Lapsed';
+  status.classList.toggle('off', !state.subscriptionOn);
+}
+
+function render(){
+  setAccent();
+  renderFamilyTabs();
+  renderTierGroup();
+  renderCompareHeads();
+  renderSubToggle();
+  if(state.mode === 'compare'){
+    renderCompare();
+  } else {
+    renderSolo();
+  }
+}
+
+// ---- Event wiring ----
+document.querySelectorAll('.family-tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    state.family = btn.dataset.family;
+    state.mode = 'solo';
+    state.soloTier = FAMILY_CONFIG[state.family].tiers[0].key;
+    render();
+  });
+});
+
+document.getElementById('subSwitch').addEventListener('click', ()=>{
+  state.subscriptionOn = !state.subscriptionOn;
+  render();
+});
+
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  state.query = e.target.value;
+  if(state.mode==='compare'){ renderCompare(); } else { renderSolo(); }
+});
+
+// init
+document.querySelector('.family-tab[data-family="besnv"]').classList.add('active');
+render();
+</script>
+</body>
+</html>

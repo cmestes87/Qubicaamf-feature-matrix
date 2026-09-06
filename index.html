@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QubicaAMF Feature Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0F1424;
+    --panel: #171D33;
+    --panel-alt: #1D2440;
+    --border: #2A3152;
+    --text: #EDEFF7;
+    --text-muted: #8992B0;
+    --text-faint: #565E7E;
+
+    --amber: #FFB454;      /* BES NV family accent */
+    --amber-dim: #7A5A2E;
+    --violet: #9C8CFF;     /* Neoverse family accent */
+    --violet-dim: #4C4480;
+
+    --ok: #3DDC97;
+    --neofi: #FF6FC6;
+    --lost: #F0708A;
+    --lost-dim: #5C3440;
+
+    --radius: 10px;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(156,140,255,0.12), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 85% 0%, rgba(255,180,84,0.10), transparent 60%);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 22px;
+  }
+  .brand{
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+  }
+  .brand .kicker{
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  .brand h1{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .brand h1 .accent{
+    color: var(--current-accent, var(--amber));
+    transition: color .25s ease;
+  }
+
+  .family-tabs{
+    display:flex;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 5px;
+    border-radius: 999px;
+  }
+  .family-tab{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .family-tab:hover{ color: var(--text); }
+  .family-tab.active{
+    background: var(--current-accent, var(--amber));
+    color: #10131F;
+  }
+
+  /* ---------- Controls ---------- */
+  .controls{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .tier-group{
+    display:flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tier-btn{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .tier-btn:hover{ color: var(--text); border-color: var(--current-accent); }
+  .tier-btn.active{
+    background: var(--panel-alt);
+    color: var(--text);
+    border-color: var(--current-accent, var(--amber));
+    box-shadow: 0 0 0 1px var(--current-accent, var(--amber)) inset;
+  }
+  .tier-btn.compare-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  .right-controls{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .search-box{
+    position:relative;
+  }
+  .search-box input{
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px 10px 34px;
+    border-radius: var(--radius);
+    width: 200px;
+    outline: none;
+    transition: border-color .15s ease, width .2s ease;
+  }
+  .search-box input:focus{ border-color: var(--current-accent, var(--amber)); width: 230px; }
+  .search-box input::placeholder{ color: var(--text-faint); }
+  .search-box::before{
+    content: '';
+    position:absolute;
+    left: 12px; top: 50%;
+    width: 12px; height: 12px;
+    transform: translateY(-50%);
+    border: 1.5px solid var(--text-faint);
+    border-radius: 50%;
+    pointer-events:none;
+  }
+  .search-box::after{
+    content:'';
+    position:absolute;
+    left: 20.5px; top: 21px;
+    width: 6px; height: 1.5px;
+    background: var(--text-faint);
+    transform: rotate(45deg);
+    pointer-events:none;
+  }
+
+  .sub-toggle{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  .sub-toggle .label{
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .sub-toggle .label b{ color: var(--text); font-weight:600; }
+  .switch{
+    position:relative;
+    width: 46px;
+    height: 26px;
+    border-radius: 999px;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: background .2s ease;
+  }
+  .switch.on{ background: var(--ok); border-color: var(--ok); }
+  .switch .knob{
+    position:absolute;
+    top: 2px; left: 2px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: left .2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+  .switch.on .knob{ left: 22px; }
+  .sub-status{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(61,220,151,0.14);
+    color: var(--ok);
+  }
+  .sub-status.off{
+    background: rgba(255,111,111,0.14);
+    color: #FF7A7A;
+  }
+
+  /* ---------- Compare header ---------- */
+  .compare-heads{
+    display:none;
+    grid-template-columns: 1fr 118px 118px;
+    gap: 10px;
+    padding: 0 14px 10px;
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .compare-heads.show{ display:grid; }
+  .compare-heads span{ text-align:center; }
+  .compare-heads span:first-child{ text-align:left; }
+
+  /* ---------- Categories ---------- */
+  .category{ margin-bottom: 28px; }
+  .category-title{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--current-accent, var(--amber));
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  .category-title::after{
+    content:'';
+    flex:1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+  .category-count{
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+
+  /* solo chip grid */
+  .chip-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap: 7px;
+    padding: 9px 13px;
+    border-radius: var(--radius);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+    transition: opacity .2s ease, border-color .2s ease;
+  }
+  .chip .dot{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--ok);
+    flex-shrink:0;
+  }
+  .chip.locked{
+    opacity: 0.7;
+    color: var(--lost);
+    background: rgba(240,112,138,0.07);
+    border-color: var(--lost-dim);
+  }
+  .chip.locked .dot{ background: var(--lost); }
+  .chip.locked .name{ }
+  .chip.neofi{ border-color: var(--neofi); }
+  .chip.neofi .dot{ background: var(--neofi); }
+  .chip .spark{
+    color: var(--neofi);
+    font-size: 12px;
+    line-height:1;
+  }
+  .chip.locked .spark{ color: var(--lost); opacity: 0.85; }
+  .chip .sub-flag{
+    font-size: 10px;
+    color: var(--amber);
+    border: 1px solid var(--amber-dim);
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-weight:600;
+    letter-spacing: .02em;
+  }
+  .chip.locked .sub-flag{ color: var(--lost); border-color: var(--lost-dim); }
+
+  /* compare rows */
+  .compare-row{
+    display:grid;
+    grid-template-columns: 1fr 118px 118px;
+    gap: 10px;
+    align-items:center;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+  }
+  .compare-row:nth-child(odd){ background: rgba(255,255,255,0.02); }
+  .compare-row .fname{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .compare-row .fname .spark{ color: var(--neofi); font-size: 12px; }
+  .compare-cell{ text-align:center; }
+  .mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight:700;
+  }
+  .mark.yes{ background: rgba(61,220,151,0.16); color: var(--ok); }
+  .mark.yes.locked{ background: rgba(240,112,138,0.14); color: var(--lost); opacity: .9; }
+  .mark.no{ color: var(--text-faint); }
+
+  /* ---------- Legend ---------- */
+  .legend{
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    display:flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .legend-item{ display:flex; align-items:center; gap: 7px; }
+  .legend-item .swatch{ width: 9px; height: 9px; border-radius: 50%; flex-shrink:0; }
+
+  /* ---------- Disclaimer ---------- */
+  .disclaimer{
+    margin-top: 36px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--text-faint);
+  }
+
+  .badge{ width: 38px; height: auto; flex-shrink: 0; }
+  .brand-row{ display:flex; align-items:center; gap: 14px; }
+
+  .controls-left{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .empty-state{
+    padding: 60px 20px;
+    text-align:center;
+    color: var(--text-faint);
+    font-size: 14px;
+  }
+
+  @media (max-width: 720px){
+    header{ flex-direction: column; align-items: flex-start; }
+    .controls{ flex-direction: column; align-items: flex-start; }
+    .compare-heads, .compare-row{ grid-template-columns: 1fr 70px 70px; }
+    .search-box input{ width: 150px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand-row">
+      <img class="badge" src="data:image/png;base64,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" alt="QubicaAMF">
+      <div class="brand">
+        <span class="kicker">Sales Reference &mdash; Scoring &amp; Entertainment Systems</span>
+        <h1>Feature <span class="accent">Matrix</span></h1>
+      </div>
+    </div>
+    <div class="family-tabs" id="familyTabs">
+      <button class="family-tab" data-family="besnv">BES NV</button>
+      <button class="family-tab" data-family="neoverse">Neoverse</button>
+    </div>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--ok)"></span> Included</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--lost)"></span> Lost if subscription lapses</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--neofi)"></span> &#10022; Neo&#8209;Fi &mdash; enhanced when the center also runs the paired system</div>
+    <div class="legend-item">Toggle subscription off to preview what a center loses if it doesn't renew.</div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-left">
+      <div class="tier-group" id="tierGroup"></div>
+    </div>
+    <div class="right-controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search features&hellip;">
+      </div>
+      <div class="sub-toggle">
+        <span class="label">Subscription</span>
+        <div class="switch on" id="subSwitch"><div class="knob"></div></div>
+        <span class="sub-status" id="subStatus">Active</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-heads" id="compareHeads">
+    <span>Feature</span>
+    <span id="compareHeadA"></span>
+    <span id="compareHeadB"></span>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="disclaimer">
+    This site is an unofficial, limited-liability matrix compiled by a QubicaAMF employee but is not housed on an official QubicaAMF server. This information should only be used in conjunction with the QubicaAMF sales team and should not be provided directly to centers. This matrix is not an official document but is meant to be an accurate representation of product features. This site can not be used for contract purposes, and no damages will be incurred from omissions or errors.
+  </div>
+
+</div>
+
+<script>
+const DATA = {"neoverse":[{"name":"Dynamic Backgrounds","items":[{"name":"Autumn Foliage","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Blue Skulls","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Bokeh Blue","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Bokeh Violet","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Bowling Cascade","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Bowling Particles","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Bubbles","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Chomp","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Cinco De Mayo","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Dots","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Easter Bunny","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Easter Pattern","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Eggs","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Fruits","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Green Skulls","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Halloween","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Japan Bamboo","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Miro Red","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Miro Yellow","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"New Years","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Optical","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Pillars","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Pumpkin Spice","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Rainbow Skulls","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Rounded Squares","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Spring Bush","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Spring Flowers","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Spring Ink","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Spring Objects","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"St. Patrick's Day","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Stripes","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Summer Beach","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Summer Objects","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Valentine Clouds","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Valentine Cupid","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Valentine Objects","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Valentine Pattern","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Wave","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Wavy Color","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Winter","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Winter Objects","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Winter Room","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Christmas Tree","interactive":true,"standalone":true,"sub":true,"neofi":false}]},{"name":"Interactive Environments","items":[{"name":"HyperBowl","interactive":true,"standalone":true,"sub":true,"neofi":true},{"name":"Air","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Avatar Alley","interactive":true,"standalone":true,"sub":true,"neofi":true},{"name":"Birthday Candles","interactive":true,"standalone":true,"sub":true,"neofi":true},{"name":"Collage Concrete","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Collage Space","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"80's","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"80's Christmas","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"80's Halloween","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Emoji Wall","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Fairy Tales","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Flames","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Gears","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Haring","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Monster Birthday","interactive":true,"standalone":true,"sub":true,"neofi":true},{"name":"Monster Gallery","interactive":true,"standalone":true,"sub":true,"neofi":true},{"name":"Prehistorica","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Steel Wall","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Underwater","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"WallPop","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"YouToons!","interactive":true,"standalone":true,"sub":true,"neofi":false}]},{"name":"Digital Masqs","items":[{"name":"Abstract Paint Blue","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Abstract Paint Red","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Alaska","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Art Deco","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Astro Pop","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Birds of Paradise","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Blue Wave Symphony","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Blu Glitter","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Chicago","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Elements Blue","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Entropy Lavender","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Entropy Lavender Black","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Entropy Red","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Flamingo Jungle","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Galaxy Blue","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Galaxy Lavender","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Graffiti","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Manhattan","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Maze Violet","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Memphis","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Mondrian","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Olympics Green","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Olympics Grey","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"PaperBowl","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Partybowl","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Pins","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Riverside","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Skyline Green","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Skyline Red","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Theater","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Winter Athletes","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Winter Champions","interactive":true,"standalone":true,"sub":true,"neofi":false}]},{"name":"Competition Elements","items":[{"name":"Magic Triangle","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Magic Triangle Plus","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Bokeh Blue Dark","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Bokeh Violet Dark","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Competitive Grids","interactive":true,"standalone":false,"sub":true,"neofi":false},{"name":"Dots Dark","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Head to Head","interactive":true,"standalone":false,"sub":true,"neofi":false},{"name":"Miro Red Dark","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Miro Yellow Dark","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Pillars Dark","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Stripes Dark","interactive":true,"standalone":true,"sub":true,"neofi":false}]},{"name":"Global Shows","items":[{"name":"American Anthem","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Christmas","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Cities","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Cosmo","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Disco","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Fluids","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Japan Culture","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Japan Neko","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Little Lights","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Nature","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Sea","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Seasons","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Solar System","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Sport","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Valentine Hearts","interactive":true,"standalone":true,"sub":true,"neofi":false}]},{"name":"Features","items":[{"name":"Live Animations and Events","interactive":true,"standalone":false,"sub":true,"neofi":false},{"name":"Façade Interactive Ball Lights (1 and 2)","interactive":true,"standalone":false,"sub":true,"neofi":false},{"name":"Façade Identity (Logo)","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Lighting Integration","interactive":true,"standalone":false,"sub":false,"neofi":false},{"name":"Dark Mode","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Custom Pictures","interactive":true,"standalone":true,"sub":false,"neofi":false},{"name":"Custom Content (Video/Images)","interactive":true,"standalone":true,"sub":true,"neofi":false},{"name":"Billboards/External Live Video","interactive":true,"standalone":true,"sub":false,"neofi":false}]}],"besnv":[{"name":"Environments","items":[{"name":"80's","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":true},{"name":"80's Christmas","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":true},{"name":"80's Halloween","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":true},{"name":"Amplify","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Avatar Alley","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":true},{"name":"Battle on the Lanes","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Birthday","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Bowlin' Hood","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Celebration","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":true},{"name":"Christmas Joy","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Classic","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Doubles & Trios","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false},{"name":"Fairy Tales","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":true},{"name":"Flames","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":true},{"name":"Hallopin","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Head to Head","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":true},{"name":"Lane Duel","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":false},{"name":"Monster Factory","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":true},{"name":"Oceano","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":true},{"name":"PBA","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":false},{"name":"Prehistorica","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":true},{"name":"Selfie Grids","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Signature Grids","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Training Camp","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false},{"name":"YouToons","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":true}]},{"name":"HyperBowling","items":[{"name":"HyperBowl","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":true},{"name":"HyperBowl Pro","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":true},{"name":"HyperSquad","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"HyperActive","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Hyper Bounce & Fun","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false}]},{"name":"Classic Games","items":[{"name":"3-6-9","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Best Frame","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Best Game","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Low Game","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"No Tap","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false}]},{"name":"Skill Games","items":[{"name":"Even Better","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Head Hunter","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Last Pin Standing","besnv":true,"besnvSub":false,"value":false,"valueSub":false,"neofi":false},{"name":"Odd Duck","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Odds & Evens","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false}]},{"name":"Features","items":[{"name":"5 Frame Games","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"BES NV Identity","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false},{"name":"BES NV Navigator","besnv":true,"besnvSub":true,"value":false,"valueSub":false,"neofi":false},{"name":"Bowling Memories","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false},{"name":"Current Frame Scoring (WTBA)","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Lucky Train","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"On-Demand Ordering","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false},{"name":"On-Lane Messaging","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Smart Picture Validation","besnv":true,"besnvSub":true,"value":true,"valueSub":true,"neofi":false},{"name":"Smart Service Call","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false},{"name":"Weleome Screens","besnv":true,"besnvSub":false,"value":true,"valueSub":false,"neofi":false}]}]};
+
+const FAMILY_CONFIG = {
+  besnv: {
+    accent: '#FFB454',
+    dimAccent: '#7A5A2E',
+    tiers: [
+      { key: 'besnv',  label: 'BES NV',       includedKey: 'besnv', subKey: 'besnvSub' },
+      { key: 'value',  label: 'BES NV Value', includedKey: 'value', subKey: 'valueSub' },
+    ],
+    neofiNote: 'Requires BES NV + Neoverse Interactive Edition',
+  },
+  neoverse: {
+    accent: '#9C8CFF',
+    dimAccent: '#4C4480',
+    tiers: [
+      { key: 'interactive', label: 'Neoverse Interactive Edition', includedKey: 'interactive', subKey: 'sub' },
+      { key: 'standalone',  label: 'Neoverse Standalone',          includedKey: 'standalone',  subKey: 'sub' },
+    ],
+    neofiNote: 'Requires Neoverse Interactive Edition + BES NV',
+  }
+};
+
+const CATEGORIES = {
+  besnv: DATA.besnv,
+  neoverse: DATA.neoverse,
+};
+
+const state = {
+  family: 'besnv',
+  mode: 'solo',       // 'solo' | 'compare'
+  soloTier: 'besnv',  // active tier key when mode === 'solo'
+  subscriptionOn: true,
+  query: '',
+};
+
+function setAccent(){
+  const cfg = FAMILY_CONFIG[state.family];
+  document.documentElement.style.setProperty('--current-accent', cfg.accent);
+  document.documentElement.style.setProperty('--current-accent-dim', cfg.dimAccent);
+}
+
+function renderFamilyTabs(){
+  document.querySelectorAll('.family-tab').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.family === state.family);
+  });
+}
+
+function renderTierGroup(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const el = document.getElementById('tierGroup');
+  el.innerHTML = '';
+  cfg.tiers.forEach(t=>{
+    const b = document.createElement('button');
+    b.className = 'tier-btn' + ((state.mode==='solo' && state.soloTier===t.key) ? ' active' : '');
+    b.textContent = t.label;
+    b.addEventListener('click', ()=>{
+      state.mode = 'solo';
+      state.soloTier = t.key;
+      render();
+    });
+    el.appendChild(b);
+  });
+  const cmp = document.createElement('button');
+  cmp.className = 'tier-btn compare-btn' + (state.mode==='compare' ? ' active' : '');
+  cmp.innerHTML = '&#8646; Compare Both';
+  cmp.addEventListener('click', ()=>{
+    state.mode = 'compare';
+    render();
+  });
+  el.appendChild(cmp);
+}
+
+function renderCompareHeads(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const wrap = document.getElementById('compareHeads');
+  wrap.classList.toggle('show', state.mode === 'compare');
+  document.getElementById('compareHeadA').textContent = cfg.tiers[0].label;
+  document.getElementById('compareHeadB').textContent = cfg.tiers[1].label;
+}
+
+function matchesQuery(name){
+  if(!state.query) return true;
+  return name.toLowerCase().includes(state.query.toLowerCase());
+}
+
+function renderSoloChip(item, tier){
+  const included = item[tier.includedKey];
+  if(!included) return null;
+  const subRequired = !!item[tier.subKey];
+  const locked = subRequired && !state.subscriptionOn;
+
+  const chip = document.createElement('div');
+  chip.className = 'chip' + (locked ? ' locked' : '') + (item.neofi ? ' neofi' : '');
+
+  const dot = document.createElement('span');
+  dot.className = 'dot';
+  chip.appendChild(dot);
+
+  const name = document.createElement('span');
+  name.className = 'name';
+  name.textContent = item.name;
+  chip.appendChild(name);
+
+  if(item.neofi){
+    const spark = document.createElement('span');
+    spark.className = 'spark';
+    spark.innerHTML = '&#10022;';
+    spark.title = FAMILY_CONFIG[state.family].neofiNote;
+    chip.appendChild(spark);
+  }
+
+  if(subRequired){
+    const flag = document.createElement('span');
+    flag.className = 'sub-flag';
+    flag.textContent = 'SUB';
+    chip.title = locked ? 'Lost without an active subscription' : 'Requires active subscription';
+    chip.appendChild(flag);
+  }
+
+  return chip;
+}
+
+function renderSolo(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const tier = cfg.tiers.find(t=>t.key===state.soloTier) || cfg.tiers[0];
+  const cats = CATEGORIES[state.family];
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+
+  let totalShown = 0;
+
+  cats.forEach(cat=>{
+    const matchingItems = cat.items.filter(it => it[tier.includedKey] && matchesQuery(it.name));
+    if(matchingItems.length === 0) return;
+    totalShown += matchingItems.length;
+
+    const catEl = document.createElement('div');
+    catEl.className = 'category';
+
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.innerHTML = `${cat.name} <span class="category-count">${matchingItems.length}</span>`;
+    catEl.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'chip-grid';
+    matchingItems.forEach(it=>{
+      const chip = renderSoloChip(it, tier);
+      if(chip) grid.appendChild(chip);
+    });
+    catEl.appendChild(grid);
+
+    content.appendChild(catEl);
+  });
+
+  if(totalShown === 0){
+    content.innerHTML = '<div class="empty-state">No features match your search.</div>';
+  }
+}
+
+function renderCompareRow(item){
+  const cfg = FAMILY_CONFIG[state.family];
+  const [tA, tB] = cfg.tiers;
+
+  const row = document.createElement('div');
+  row.className = 'compare-row';
+
+  const fname = document.createElement('div');
+  fname.className = 'fname';
+  const label = document.createElement('span');
+  label.textContent = item.name;
+  fname.appendChild(label);
+  if(item.neofi){
+    const spark = document.createElement('span');
+    spark.className = 'spark';
+    spark.innerHTML = '&#10022;';
+    spark.title = cfg.neofiNote;
+    fname.appendChild(spark);
+  }
+  row.appendChild(fname);
+
+  [tA, tB].forEach(tier=>{
+    const cell = document.createElement('div');
+    cell.className = 'compare-cell';
+    const included = item[tier.includedKey];
+    const subRequired = !!item[tier.subKey];
+    const locked = included && subRequired && !state.subscriptionOn;
+
+    const mark = document.createElement('span');
+    if(included){
+      mark.className = 'mark yes' + (locked ? ' locked' : '');
+      mark.textContent = locked ? '\u2715' : '\u2713';
+      if(subRequired) mark.title = locked ? 'Lost without an active subscription' : 'Requires active subscription';
+    } else {
+      mark.className = 'mark no';
+      mark.textContent = '\u2013';
+    }
+    cell.appendChild(mark);
+    row.appendChild(cell);
+  });
+
+  return row;
+}
+
+function renderCompare(){
+  const cats = CATEGORIES[state.family];
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  const cfg = FAMILY_CONFIG[state.family];
+  let totalShown = 0;
+
+  cats.forEach(cat=>{
+    const matchingItems = cat.items.filter(it =>
+      (it[cfg.tiers[0].includedKey] || it[cfg.tiers[1].includedKey]) && matchesQuery(it.name)
+    );
+    if(matchingItems.length === 0) return;
+    totalShown += matchingItems.length;
+
+    const catEl = document.createElement('div');
+    catEl.className = 'category';
+
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.innerHTML = `${cat.name} <span class="category-count">${matchingItems.length}</span>`;
+    catEl.appendChild(title);
+
+    matchingItems.forEach(it=>{
+      catEl.appendChild(renderCompareRow(it));
+    });
+
+    content.appendChild(catEl);
+  });
+
+  if(totalShown === 0){
+    content.innerHTML = '<div class="empty-state">No features match your search.</div>';
+  }
+}
+
+function renderSubToggle(){
+  const sw = document.getElementById('subSwitch');
+  const status = document.getElementById('subStatus');
+  sw.classList.toggle('on', state.subscriptionOn);
+  status.textContent = state.subscriptionOn ? 'Active' : 'Lapsed';
+  status.classList.toggle('off', !state.subscriptionOn);
+}
+
+function render(){
+  setAccent();
+  renderFamilyTabs();
+  renderTierGroup();
+  renderCompareHeads();
+  renderSubToggle();
+  if(state.mode === 'compare'){
+    renderCompare();
+  } else {
+    renderSolo();
+  }
+}
+
+// ---- Event wiring ----
+document.querySelectorAll('.family-tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    state.family = btn.dataset.family;
+    state.mode = 'solo';
+    state.soloTier = FAMILY_CONFIG[state.family].tiers[0].key;
+    render();
+  });
+});
+
+document.getElementById('subSwitch').addEventListener('click', ()=>{
+  state.subscriptionOn = !state.subscriptionOn;
+  render();
+});
+
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  state.query = e.target.value;
+  if(state.mode==='compare'){ renderCompare(); } else { renderSolo(); }
+});
+
+// init
+document.querySelector('.family-tab[data-family="besnv"]').classList.add('active');
+render();
+</script>
+</body>
+</html>
