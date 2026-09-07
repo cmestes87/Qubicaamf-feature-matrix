@@ -1,6 +1,158 @@
 {
   "neoverse": [
     {
+      "name": "Interactive Environments",
+      "items": [
+        {
+          "name": "HyperBowl",
+          "interactive": true,
+          "standalone": false,
+          "sub": true,
+          "neofi": true
+        },
+        {
+          "name": "Air",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Avatar Alley",
+          "interactive": true,
+          "standalone": false,
+          "sub": true,
+          "neofi": true
+        },
+        {
+          "name": "Birthday Candles",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": true
+        },
+        {
+          "name": "Collage Concrete",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Collage Space",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "80's",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "80's Christmas",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "80's Halloween",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Emoji Wall",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Fairy Tales",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Flames",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Gears",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Haring",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Monster Birthday",
+          "interactive": true,
+          "standalone": false,
+          "sub": true,
+          "neofi": true
+        },
+        {
+          "name": "Monster Gallery",
+          "interactive": true,
+          "standalone": false,
+          "sub": true,
+          "neofi": true
+        },
+        {
+          "name": "Prehistorica",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Steel Wall",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Underwater",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "WallPop",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "YouToons!",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": true
+        }
+      ]
+    },
+    {
       "name": "Dynamic Backgrounds",
       "items": [
         {
@@ -299,158 +451,6 @@
         },
         {
           "name": "Christmas Tree",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        }
-      ]
-    },
-    {
-      "name": "Interactive Environments",
-      "items": [
-        {
-          "name": "HyperBowl",
-          "interactive": true,
-          "standalone": false,
-          "sub": true,
-          "neofi": true
-        },
-        {
-          "name": "Air",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Avatar Alley",
-          "interactive": true,
-          "standalone": false,
-          "sub": true,
-          "neofi": true
-        },
-        {
-          "name": "Birthday Candles",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": true
-        },
-        {
-          "name": "Collage Concrete",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Collage Space",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "80's",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "80's Christmas",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "80's Halloween",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Emoji Wall",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Fairy Tales",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Flames",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Gears",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Haring",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Monster Birthday",
-          "interactive": true,
-          "standalone": false,
-          "sub": true,
-          "neofi": true
-        },
-        {
-          "name": "Monster Gallery",
-          "interactive": true,
-          "standalone": false,
-          "sub": true,
-          "neofi": true
-        },
-        {
-          "name": "Prehistorica",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Steel Wall",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "Underwater",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "WallPop",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "neofi": false
-        },
-        {
-          "name": "YouToons!",
           "interactive": true,
           "standalone": true,
           "sub": true,
@@ -937,6 +937,20 @@
           "standalone": true,
           "sub": false,
           "neofi": false
+        },
+        {
+          "name": "Scheduler",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Playlists",
+          "interactive": true,
+          "standalone": true,
+          "sub": false,
+          "neofi": false
         }
       ]
     }
@@ -951,7 +965,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "80's Christmas",
@@ -959,7 +974,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "80's Halloween",
@@ -967,7 +983,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Amplify",
@@ -975,7 +992,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Avatar Alley",
@@ -983,7 +1001,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": true
         },
         {
           "name": "Battle on the Lanes",
@@ -991,7 +1010,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Birthday",
@@ -999,7 +1019,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Bowlin' Hood",
@@ -1007,7 +1028,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Celebration",
@@ -1015,7 +1037,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Christmas Joy",
@@ -1023,7 +1046,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Classic",
@@ -1031,7 +1055,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Doubles & Trios",
@@ -1039,7 +1064,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Fairy Tales",
@@ -1047,7 +1073,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Flames",
@@ -1055,7 +1082,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Hallopin",
@@ -1063,7 +1091,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Head to Head",
@@ -1071,7 +1100,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Lane Duel",
@@ -1079,7 +1109,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Monster Factory",
@@ -1087,7 +1118,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Oceano",
@@ -1095,7 +1127,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "PBA",
@@ -1103,7 +1136,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Prehistorica",
@@ -1111,7 +1145,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": false
         },
         {
           "name": "Selfie Grids",
@@ -1119,7 +1154,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Signature Grids",
@@ -1127,7 +1163,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Training Camp",
@@ -1135,7 +1172,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "YouToons",
@@ -1143,7 +1181,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": true
         }
       ]
     },
@@ -1156,7 +1195,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": true
         },
         {
           "name": "HyperBowl Pro",
@@ -1164,7 +1204,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": true
+          "neofi": true,
+          "superTouch": true
         },
         {
           "name": "HyperSquad",
@@ -1172,7 +1213,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "HyperActive",
@@ -1180,7 +1222,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Hyper Bounce & Fun",
@@ -1188,7 +1231,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         }
       ]
     },
@@ -1201,7 +1245,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Best Frame",
@@ -1209,7 +1254,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Best Game",
@@ -1217,7 +1263,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Low Game",
@@ -1225,7 +1272,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "No Tap",
@@ -1233,7 +1281,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         }
       ]
     },
@@ -1246,7 +1295,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Head Hunter",
@@ -1254,7 +1304,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Last Pin Standing",
@@ -1262,7 +1313,8 @@
           "besnvSub": false,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Odd Duck",
@@ -1270,7 +1322,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Odds & Evens",
@@ -1278,7 +1331,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         }
       ]
     },
@@ -1291,7 +1345,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "BES NV Identity",
@@ -1299,7 +1354,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "BES NV Navigator",
@@ -1307,7 +1363,8 @@
           "besnvSub": true,
           "value": false,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Bowling Memories",
@@ -1315,7 +1372,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Current Frame Scoring (WTBA)",
@@ -1323,7 +1381,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Lucky Train",
@@ -1331,7 +1390,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "On-Demand Ordering",
@@ -1339,7 +1399,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "On-Lane Messaging",
@@ -1347,7 +1408,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         },
         {
           "name": "Smart Picture Validation",
@@ -1355,7 +1417,8 @@
           "besnvSub": true,
           "value": true,
           "valueSub": true,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Smart Service Call",
@@ -1363,7 +1426,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Weleome Screens",
@@ -1371,7 +1435,8 @@
           "besnvSub": false,
           "value": true,
           "valueSub": false,
-          "neofi": false
+          "neofi": false,
+          "superTouch": false
         }
       ]
     }

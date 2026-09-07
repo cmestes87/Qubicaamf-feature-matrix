@@ -25,6 +25,8 @@
     --neofi: #FF6FC6;
     --lost: #F0708A;
     --lost-dim: #5C3440;
+    --touch: #5EC8FF;
+    --touch-dim: #2E5A78;
 
     --radius: 10px;
     --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -332,6 +334,16 @@
     letter-spacing: .02em;
   }
   .chip.locked .sub-flag{ color: var(--lost); border-color: var(--lost-dim); }
+  .chip .touch-flag{
+    font-size: 10px;
+    color: var(--touch);
+    border: 1px solid var(--touch-dim);
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-weight:600;
+    letter-spacing: .02em;
+  }
+  .chip.locked .touch-flag{ color: var(--lost); border-color: var(--lost-dim); }
 
   /* compare rows */
   .compare-row{
@@ -434,6 +446,7 @@
     <div class="legend-item"><span class="swatch" style="background:var(--ok)"></span> Included</div>
     <div class="legend-item"><span class="swatch" style="background:var(--lost)"></span> Lost if subscription lapses</div>
     <div class="legend-item"><span class="swatch" style="background:var(--neofi)"></span> &#10022; Neo&#8209;Fi &mdash; enhanced when the center also runs the paired system</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--touch)"></span> TOUCH &mdash; requires SuperTouch hardware</div>
     <div class="legend-item">Toggle subscription off to preview what a center loses if it doesn't renew.</div>
   </div>
 
@@ -588,6 +601,14 @@ function renderSoloChip(item, tier){
     chip.appendChild(flag);
   }
 
+  if(item.superTouch){
+    const touch = document.createElement('span');
+    touch.className = 'touch-flag';
+    touch.textContent = 'TOUCH';
+    touch.title = 'Requires SuperTouch hardware';
+    chip.appendChild(touch);
+  }
+
   return chip;
 }
 
@@ -647,6 +668,13 @@ function renderCompareRow(item){
     spark.innerHTML = '&#10022;';
     spark.title = cfg.neofiNote;
     fname.appendChild(spark);
+  }
+  if(item.superTouch){
+    const touch = document.createElement('span');
+    touch.className = 'touch-flag';
+    touch.textContent = 'TOUCH';
+    touch.title = 'Requires SuperTouch hardware';
+    fname.appendChild(touch);
   }
   row.appendChild(fname);
 

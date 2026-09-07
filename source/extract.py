@@ -52,7 +52,7 @@ for r in rows:
     })
 
 # ---- BES NV ----
-# Sheet2, columns: Environments | BES NV | Requires Subscription | BES NV Value | Requires Subscription | Neo-Fi
+# Sheet2, columns: Environments | BES NV | Requires Subscription | BES NV Value | Requires Subscription | Neo-Fi | Requires SuperTouch
 # Category header rows (e.g. "HyperBowling", "Classic Games") have a name in col A and every other column empty.
 # Rows before the first named category header belong to "Environments".
 wb2 = openpyxl.load_workbook(BESNV_XLSX, data_only=True)
@@ -62,12 +62,12 @@ rows2 = list(ws2.iter_rows(values_only=True))
 besnv_categories = []
 cur = None
 for r in rows2:
-    name, besnv, besnv_sub, value, value_sub, neofi = [clean(x) for x in r]
+    name, besnv, besnv_sub, value, value_sub, neofi, supertouch = [clean(x) for x in r]
     if name is None:
         continue
     if name == "Environments" and besnv == "BES NV":
         continue  # header row
-    if besnv is None and value is None and besnv_sub is None and value_sub is None and neofi is None:
+    if besnv is None and value is None and besnv_sub is None and value_sub is None and neofi is None and supertouch is None:
         cur = {"name": name, "items": []}
         besnv_categories.append(cur)
         continue
@@ -81,6 +81,7 @@ for r in rows2:
         "value": bool(value),
         "valueSub": bool(value_sub),
         "neofi": bool(neofi),
+        "superTouch": bool(supertouch),
     })
 
 out = {"neoverse": neoverse_categories, "besnv": besnv_categories}
