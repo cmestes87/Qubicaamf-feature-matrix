@@ -665,6 +665,27 @@
           "neofi": false
         },
         {
+          "name": "Tribal Lines",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Tribal Motif",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
+          "name": "Tribal Shapes",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "neofi": false
+        },
+        {
           "name": "Theater",
           "interactive": true,
           "standalone": true,
@@ -1383,6 +1404,15 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false
+        },
+        {
+          "name": "Extend Your Session",
+          "besnv": true,
+          "besnvSub": true,
+          "value": true,
+          "valueSub": true,
+          "neofi": false,
+          "superTouch": true
         },
         {
           "name": "Lucky Train",
