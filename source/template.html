@@ -444,7 +444,7 @@
     <div class="legend-item"><span class="swatch" style="background:var(--lost)"></span> Lost if subscription lapses</div>
     <div class="legend-item"><span class="swatch" style="background:var(--neofi)"></span> &#10022; Neo&#8209;Fi &mdash; enhanced when the center also runs the paired system</div>
     <div class="legend-item"><span class="swatch" style="background:var(--touch)"></span> Requires SuperTouch hardware</div>
-    <div class="legend-item">Toggle subscription off to preview what a center loses if it doesn't renew.</div>
+    <div class="legend-item">Toggle Subscription or SuperTouch off to preview what a center loses without them.</div>
   </div>
 
   <div class="controls">
@@ -459,6 +459,11 @@
         <span class="label">Subscription</span>
         <div class="switch on" id="subSwitch"><div class="knob"></div></div>
         <span class="sub-status" id="subStatus">Active</span>
+      </div>
+      <div class="sub-toggle">
+        <span class="label">SuperTouch</span>
+        <div class="switch on" id="touchSwitch"><div class="knob"></div></div>
+        <span class="sub-status" id="touchStatus">Installed</span>
       </div>
     </div>
   </div>
@@ -513,6 +518,7 @@ const state = {
   mode: 'solo',       // 'solo' | 'compare'
   soloTier: 'besnv',  // active tier key when mode === 'solo'
   subscriptionOn: true,
+  superTouchOn: true,
   query: '',
 };
 
@@ -570,7 +576,10 @@ function renderSoloChip(item, tier){
   const included = item[tier.includedKey];
   if(!included) return null;
   const subRequired = !!item[tier.subKey];
-  const locked = subRequired && !state.subscriptionOn;
+  const touchRequired = !!item.superTouch;
+  const subLocked = subRequired && !state.subscriptionOn;
+  const touchLocked = touchRequired && !state.superTouchOn;
+  const locked = subLocked || touchLocked;
 
   const chip = document.createElement('div');
   chip.className = 'chip' + (locked ? ' locked' : '') + (item.neofi ? ' neofi' : '');
@@ -596,16 +605,23 @@ function renderSoloChip(item, tier){
     const flag = document.createElement('span');
     flag.className = 'sub-flag';
     flag.textContent = 'SUB';
-    chip.title = locked ? 'Lost without an active subscription' : 'Requires active subscription';
+    flag.title = subLocked ? 'Lost without an active subscription' : 'Requires active subscription';
     chip.appendChild(flag);
   }
 
-  if(item.superTouch){
+  if(touchRequired){
     const touch = document.createElement('span');
     touch.className = 'touch-icon';
     touch.innerHTML = TOUCH_ICON;
-    touch.title = 'Requires SuperTouch hardware';
+    touch.title = touchLocked ? 'Lost without SuperTouch hardware' : 'Requires SuperTouch hardware';
     chip.appendChild(touch);
+  }
+
+  if(locked){
+    const reasons = [];
+    if(subLocked) reasons.push('an active subscription');
+    if(touchLocked) reasons.push('SuperTouch hardware');
+    chip.title = 'Lost without ' + reasons.join(' and ');
   }
 
   return chip;
@@ -668,11 +684,12 @@ function renderCompareRow(item){
     spark.title = cfg.neofiNote;
     fname.appendChild(spark);
   }
-  if(item.superTouch){
+  const touchRequired = !!item.superTouch;
+  if(touchRequired){
     const touch = document.createElement('span');
     touch.className = 'touch-icon';
     touch.innerHTML = TOUCH_ICON;
-    touch.title = 'Requires SuperTouch hardware';
+    touch.title = (touchRequired && !state.superTouchOn) ? 'Lost without SuperTouch hardware' : 'Requires SuperTouch hardware';
     fname.appendChild(touch);
   }
   row.appendChild(fname);
@@ -682,13 +699,25 @@ function renderCompareRow(item){
     cell.className = 'compare-cell';
     const included = item[tier.includedKey];
     const subRequired = !!item[tier.subKey];
-    const locked = included && subRequired && !state.subscriptionOn;
+    const subLocked = subRequired && !state.subscriptionOn;
+    const touchLocked = touchRequired && !state.superTouchOn;
+    const locked = included && (subLocked || touchLocked);
 
     const mark = document.createElement('span');
     if(included){
       mark.className = 'mark yes' + (locked ? ' locked' : '');
       mark.textContent = locked ? '\u2715' : '\u2713';
-      if(subRequired) mark.title = locked ? 'Lost without an active subscription' : 'Requires active subscription';
+      if(locked){
+        const reasons = [];
+        if(subLocked) reasons.push('an active subscription');
+        if(touchLocked) reasons.push('SuperTouch hardware');
+        mark.title = 'Lost without ' + reasons.join(' and ');
+      } else if(subRequired || touchRequired){
+        const reqs = [];
+        if(subRequired) reqs.push('an active subscription');
+        if(touchRequired) reqs.push('SuperTouch hardware');
+        mark.title = 'Requires ' + reqs.join(' and ');
+      }
     } else {
       mark.className = 'mark no';
       mark.textContent = '\u2013';
@@ -742,12 +771,21 @@ function renderSubToggle(){
   status.classList.toggle('off', !state.subscriptionOn);
 }
 
+function renderTouchToggle(){
+  const sw = document.getElementById('touchSwitch');
+  const status = document.getElementById('touchStatus');
+  sw.classList.toggle('on', state.superTouchOn);
+  status.textContent = state.superTouchOn ? 'Installed' : 'Not Installed';
+  status.classList.toggle('off', !state.superTouchOn);
+}
+
 function render(){
   setAccent();
   renderFamilyTabs();
   renderTierGroup();
   renderCompareHeads();
   renderSubToggle();
+  renderTouchToggle();
   if(state.mode === 'compare'){
     renderCompare();
   } else {
@@ -767,6 +805,11 @@ document.querySelectorAll('.family-tab').forEach(btn=>{
 
 document.getElementById('subSwitch').addEventListener('click', ()=>{
   state.subscriptionOn = !state.subscriptionOn;
+  render();
+});
+
+document.getElementById('touchSwitch').addEventListener('click', ()=>{
+  state.superTouchOn = !state.superTouchOn;
   render();
 });
 
