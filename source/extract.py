@@ -25,7 +25,7 @@ def clean(v):
 
 
 # ---- Neoverse ----
-# Sheet1 (2), columns: Name | Neoverse Interactive Edition | Neoverse (Stand Alone) | Requires Subscription | Requires BES NV
+# Sheet1 (2), columns: Name | Neoverse Interactive Edition | Neoverse (Stand Alone) | Requires Subscription | Requires BES NV | Requires SuperTouch | Content | Feature
 # Category header rows have a name in col A and every other column empty.
 wb = openpyxl.load_workbook(NEOVERSE_XLSX, data_only=True)
 ws = wb.worksheets[0]
@@ -34,10 +34,11 @@ rows = list(ws.iter_rows(values_only=True))
 neoverse_categories = []
 cur = None
 for r in rows:
-    name, interactive, standalone, sub, reqbes = [clean(x) for x in r]
+    name, interactive, standalone, sub, reqbes, supertouch, content, feature = [clean(x) for x in r]
     if name is None and interactive is None:
         continue  # blank separator row
-    if interactive is None and standalone is None and sub is None and reqbes is None:
+    if (interactive is None and standalone is None and sub is None and reqbes is None
+            and supertouch is None and content is None and feature is None):
         cur = {"name": name, "items": []}
         neoverse_categories.append(cur)
         continue
@@ -48,11 +49,13 @@ for r in rows:
         "interactive": interactive == "Included",
         "standalone": standalone == "Included",
         "sub": sub == "Yes",
+        "superTouch": supertouch == "Yes",
         "neofi": reqbes == "Yes",
+        "isFeature": bool(feature),
     })
 
 # ---- BES NV ----
-# Sheet2, columns: Environments | BES NV | Requires Subscription | BES NV Value | Requires Subscription | Neo-Fi | Requires SuperTouch
+# Sheet2, columns: Environments | BES NV | Requires Subscription | BES NV Value | Requires Subscription | Neo-Fi | Requires SuperTouch | Environment | Feature
 # Category header rows (e.g. "HyperBowling", "Classic Games") have a name in col A and every other column empty.
 # Rows before the first named category header belong to "Environments".
 wb2 = openpyxl.load_workbook(BESNV_XLSX, data_only=True)
@@ -62,12 +65,13 @@ rows2 = list(ws2.iter_rows(values_only=True))
 besnv_categories = []
 cur = None
 for r in rows2:
-    name, besnv, besnv_sub, value, value_sub, neofi, supertouch = [clean(x) for x in r]
+    name, besnv, besnv_sub, value, value_sub, neofi, supertouch, environment, feature = [clean(x) for x in r]
     if name is None:
         continue
     if name == "Environments" and besnv == "BES NV":
         continue  # header row
-    if besnv is None and value is None and besnv_sub is None and value_sub is None and neofi is None and supertouch is None:
+    if (besnv is None and value is None and besnv_sub is None and value_sub is None and neofi is None
+            and supertouch is None and environment is None and feature is None):
         cur = {"name": name, "items": []}
         besnv_categories.append(cur)
         continue
@@ -82,6 +86,7 @@ for r in rows2:
         "valueSub": bool(value_sub),
         "neofi": bool(neofi),
         "superTouch": bool(supertouch),
+        "isFeature": bool(feature),
     })
 
 out = {"neoverse": neoverse_categories, "besnv": besnv_categories}

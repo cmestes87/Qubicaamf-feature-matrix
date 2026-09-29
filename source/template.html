@@ -373,6 +373,99 @@
   .mark.yes.locked{ background: rgba(240,112,138,0.14); color: var(--lost); opacity: .9; }
   .mark.no{ color: var(--text-faint); }
 
+  /* ---------- Counters ---------- */
+  .counters-row{
+    display:flex;
+    gap: 14px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+  .counter-block{
+    flex: 1;
+    min-width: 220px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .counter-block-label{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .counter-tiers{
+    display:flex;
+    align-items:flex-end;
+    gap: 22px;
+  }
+  .counter-tier{
+    display:flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items:center;
+    gap: 4px;
+  }
+  .counter-tier.hidden{ display:none; }
+  .counter-tier:not(:last-child){ margin-right: 22px; }
+  .counter-tier-label{
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--text-faint);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    min-height: 12px;
+  }
+  .vane-counter{
+    display:flex;
+    gap: 3px;
+  }
+  .vane-digit{
+    position: relative;
+    width: 24px;
+    height: 34px;
+    perspective: 160px;
+  }
+  .vane-face{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--current-accent, var(--amber));
+    backface-visibility: hidden;
+  }
+  .vane-face::after{
+    content:'';
+    position:absolute;
+    left:0; right:0; top:50%;
+    height:1px;
+    background: rgba(0,0,0,0.35);
+  }
+  .vane-front{ transform: rotateX(0deg); z-index:2; }
+  .vane-back{ transform: rotateX(180deg); z-index:1; }
+  .vane-digit.flipping .vane-front{
+    transition: transform .32s ease-in;
+    transform: rotateX(-180deg);
+  }
+  .vane-digit.flipping .vane-back{
+    transition: transform .32s ease-in;
+    transform: rotateX(0deg);
+  }
+
   /* ---------- Legend ---------- */
   .legend{
     margin-bottom: 22px;
@@ -419,6 +512,9 @@
     .controls{ flex-direction: column; align-items: flex-start; }
     .compare-heads, .compare-row{ grid-template-columns: 1fr 70px 70px; }
     .search-box input{ width: 150px; }
+    .counter-block{ flex-direction: column; align-items:flex-start; gap:10px; min-width: 0; }
+    .vane-digit{ width: 20px; height: 28px; }
+    .vane-face{ font-size: 16px; }
   }
 </style>
 </head>
@@ -438,6 +534,35 @@
       <button class="family-tab" data-family="neoverse">Neoverse</button>
     </div>
   </header>
+
+  <div class="counters-row" id="countersRow">
+    <div class="counter-block">
+      <div class="counter-block-label" id="contentBlockLabel">Environments</div>
+      <div class="counter-tiers">
+        <div class="counter-tier" id="contentTierA">
+          <span class="counter-tier-label" id="contentTierLabelA"></span>
+          <div class="vane-counter" id="contentVaneA"></div>
+        </div>
+        <div class="counter-tier" id="contentTierB">
+          <span class="counter-tier-label" id="contentTierLabelB"></span>
+          <div class="vane-counter" id="contentVaneB"></div>
+        </div>
+      </div>
+    </div>
+    <div class="counter-block">
+      <div class="counter-block-label">Features</div>
+      <div class="counter-tiers">
+        <div class="counter-tier" id="featureTierA">
+          <span class="counter-tier-label" id="featureTierLabelA"></span>
+          <div class="vane-counter" id="featureVaneA"></div>
+        </div>
+        <div class="counter-tier" id="featureTierB">
+          <span class="counter-tier-label" id="featureTierLabelB"></span>
+          <div class="vane-counter" id="featureVaneB"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="legend">
     <div class="legend-item"><span class="swatch" style="background:var(--ok)"></span> Included</div>
@@ -496,6 +621,7 @@ const FAMILY_CONFIG = {
       { key: 'value',  label: 'BES NV Value', includedKey: 'value', subKey: 'valueSub' },
     ],
     neofiNote: 'Requires BES NV + Neoverse Interactive Edition',
+    contentLabel: 'Environments',
   },
   neoverse: {
     accent: '#9C8CFF',
@@ -505,6 +631,7 @@ const FAMILY_CONFIG = {
       { key: 'standalone',  label: 'Neoverse Standalone',          includedKey: 'standalone',  subKey: 'sub' },
     ],
     neofiNote: 'Requires Neoverse Interactive Edition + BES NV',
+    contentLabel: 'Content',
   }
 };
 
@@ -779,6 +906,84 @@ function renderTouchToggle(){
   status.classList.toggle('off', !state.superTouchOn);
 }
 
+// ---- Vane (split-flap) counters ----
+const VANE_DIGITS = 3;
+
+function isItemLocked(item){
+  const touchRequired = !!item.superTouch;
+  return touchRequired && !state.superTouchOn;
+}
+
+function countForTier(cats, tier){
+  let content = 0, feature = 0;
+  cats.forEach(cat=>{
+    cat.items.forEach(item=>{
+      if(!item[tier.includedKey]) return;
+      const subRequired = !!item[tier.subKey];
+      const subLocked = subRequired && !state.subscriptionOn;
+      const touchLocked = isItemLocked(item);
+      if(subLocked || touchLocked) return; // not currently available
+      if(item.isFeature) feature++; else content++;
+    });
+  });
+  return { content, feature };
+}
+
+function buildVaneCounter(container){
+  container.innerHTML = '';
+  for(let i = 0; i < VANE_DIGITS; i++){
+    const digit = document.createElement('div');
+    digit.className = 'vane-digit';
+    digit.innerHTML = '<div class="vane-face vane-front">0</div><div class="vane-face vane-back">0</div>';
+    container.appendChild(digit);
+  }
+}
+
+function setVaneValue(container, value){
+  const str = String(value).padStart(VANE_DIGITS, '0').slice(-VANE_DIGITS);
+  const digits = container.querySelectorAll('.vane-digit');
+  digits.forEach((digitEl, i)=>{
+    const front = digitEl.querySelector('.vane-front');
+    const back = digitEl.querySelector('.vane-back');
+    const newChar = str[i];
+    if(front.textContent === newChar) return; // no change, no flip needed
+    back.textContent = newChar;
+    digitEl.classList.add('flipping');
+    setTimeout(()=>{
+      front.textContent = newChar;
+      digitEl.classList.remove('flipping');
+    }, 320);
+  });
+}
+
+function renderCounters(){
+  const cfg = FAMILY_CONFIG[state.family];
+  const cats = CATEGORIES[state.family];
+  const [tA, tB] = cfg.tiers;
+  const compareMode = state.mode === 'compare';
+  const activeTier = compareMode ? tA : cfg.tiers.find(t=>t.key===state.soloTier) || tA;
+
+  document.getElementById('contentBlockLabel').textContent = cfg.contentLabel;
+
+  const countsA = countForTier(cats, activeTier);
+  const countsB = compareMode ? countForTier(cats, tB) : null;
+
+  document.getElementById('contentTierLabelA').textContent = compareMode ? activeTier.label : '';
+  document.getElementById('featureTierLabelA').textContent = compareMode ? activeTier.label : '';
+  document.getElementById('contentTierLabelB').textContent = compareMode ? tB.label : '';
+  document.getElementById('featureTierLabelB').textContent = compareMode ? tB.label : '';
+
+  document.getElementById('contentTierB').classList.toggle('hidden', !compareMode);
+  document.getElementById('featureTierB').classList.toggle('hidden', !compareMode);
+
+  setVaneValue(document.getElementById('contentVaneA'), countsA.content);
+  setVaneValue(document.getElementById('featureVaneA'), countsA.feature);
+  if(compareMode){
+    setVaneValue(document.getElementById('contentVaneB'), countsB.content);
+    setVaneValue(document.getElementById('featureVaneB'), countsB.feature);
+  }
+}
+
 function render(){
   setAccent();
   renderFamilyTabs();
@@ -786,6 +991,7 @@ function render(){
   renderCompareHeads();
   renderSubToggle();
   renderTouchToggle();
+  renderCounters();
   if(state.mode === 'compare'){
     renderCompare();
   } else {
@@ -820,6 +1026,9 @@ document.getElementById('searchInput').addEventListener('input', (e)=>{
 
 // init
 document.querySelector('.family-tab[data-family="besnv"]').classList.add('active');
+['contentVaneA','contentVaneB','featureVaneA','featureVaneB'].forEach(id=>{
+  buildVaneCounter(document.getElementById(id));
+});
 render();
 </script>
 </body>
