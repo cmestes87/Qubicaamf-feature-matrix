@@ -26,6 +26,7 @@
     --lost: #F0708A;
     --lost-dim: #5C3440;
     --touch: #5EC8FF;
+    --new: #FFE066;
 
     --radius: 10px;
     --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -341,6 +342,19 @@
     line-height:1;
   }
   .chip.locked .touch-icon{ color: var(--lost); opacity: 0.7; }
+  .new-tag{
+    display:inline-flex;
+    align-items:center;
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    line-height: 1;
+    padding: 3px 6px;
+    border-radius: 999px;
+    background: var(--new);
+    color: #1B1600;
+    flex-shrink: 0;
+  }
 
   /* compare rows */
   .compare-row{
@@ -569,6 +583,7 @@
     <div class="legend-item"><span class="swatch" style="background:var(--lost)"></span> Lost if subscription lapses</div>
     <div class="legend-item"><span class="swatch" style="background:var(--neofi)"></span> &#10022; Neo&#8209;Fi &mdash; enhanced when the center also runs the paired system</div>
     <div class="legend-item"><span class="swatch" style="background:var(--touch)"></span> Requires SuperTouch hardware</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--new)"></span> NEW! &mdash; recently added</div>
     <div class="legend-item">Toggle Subscription, SuperTouch, or HyperBowling off to preview what a center loses without them.</div>
   </div>
 
@@ -733,6 +748,13 @@ function renderSoloChip(item, tier){
   name.textContent = item.name;
   chip.appendChild(name);
 
+  if(item.isNew){
+    const tag = document.createElement('span');
+    tag.className = 'new-tag';
+    tag.textContent = 'NEW!';
+    chip.appendChild(tag);
+  }
+
   if(item.neofi){
     const spark = document.createElement('span');
     spark.className = 'spark';
@@ -814,6 +836,12 @@ function renderCompareRow(item){
   const label = document.createElement('span');
   label.textContent = item.name;
   fname.appendChild(label);
+  if(item.isNew){
+    const tag = document.createElement('span');
+    tag.className = 'new-tag';
+    tag.textContent = 'NEW!';
+    fname.appendChild(tag);
+  }
   if(item.neofi){
     const spark = document.createElement('span');
     spark.className = 'spark';

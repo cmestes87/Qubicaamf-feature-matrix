@@ -10,7 +10,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Air",
@@ -19,7 +20,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Avatar Alley",
@@ -28,7 +30,8 @@
           "sub": true,
           "superTouch": true,
           "neofi": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Birthday Candles",
@@ -37,7 +40,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Collage Concrete",
@@ -46,7 +50,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Collage Space",
@@ -55,7 +60,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "80's",
@@ -64,7 +70,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "80's Christmas",
@@ -73,7 +80,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "80's Halloween",
@@ -82,7 +90,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Emoji Wall",
@@ -91,7 +100,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Fairy Tales",
@@ -100,7 +110,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Flames",
@@ -109,7 +120,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Gears",
@@ -118,7 +130,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Haring",
@@ -127,7 +140,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Monster Birthday",
@@ -136,7 +150,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Monster Gallery",
@@ -145,7 +160,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Prehistorica",
@@ -154,7 +170,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Steel Wall",
@@ -163,7 +180,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Underwater",
@@ -172,7 +190,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "WallPop",
@@ -181,7 +200,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "YouToons!",
@@ -190,7 +210,8 @@
           "sub": true,
           "superTouch": true,
           "neofi": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -204,7 +225,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Blue Skulls",
@@ -213,7 +235,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bokeh Blue",
@@ -222,7 +245,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bokeh Violet",
@@ -231,7 +255,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bowling Cascade",
@@ -240,7 +265,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bowling Particles",
@@ -249,7 +275,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bubbles",
@@ -258,7 +285,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Chomp",
@@ -267,7 +295,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Cinco De Mayo",
@@ -276,7 +305,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Dots",
@@ -285,7 +315,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Easter Bunny",
@@ -294,7 +325,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Easter Pattern",
@@ -303,7 +335,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Eggs",
@@ -312,7 +345,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Fruits",
@@ -321,7 +355,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Green Skulls",
@@ -330,7 +365,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Halloween",
@@ -339,7 +375,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Japan Bamboo",
@@ -348,7 +385,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Miro Red",
@@ -357,7 +395,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Miro Yellow",
@@ -366,7 +405,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "New Years",
@@ -375,7 +415,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Optical",
@@ -384,7 +425,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Pillars",
@@ -393,7 +435,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Pumpkin Spice",
@@ -402,7 +445,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Rainbow Skulls",
@@ -411,7 +455,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Rounded Squares",
@@ -420,7 +465,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Spring Bush",
@@ -429,7 +475,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Spring Flowers",
@@ -438,7 +485,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Spring Ink",
@@ -447,7 +495,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Spring Objects",
@@ -456,7 +505,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "St. Patrick's Day",
@@ -465,7 +515,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Stripes",
@@ -474,7 +525,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Summer Beach",
@@ -483,7 +535,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Summer Objects",
@@ -492,7 +545,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Valentine Clouds",
@@ -501,7 +555,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Valentine Cupid",
@@ -510,7 +565,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Valentine Objects",
@@ -519,7 +575,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Valentine Pattern",
@@ -528,7 +585,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Wave",
@@ -537,7 +595,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Wavy Color",
@@ -546,7 +605,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Winter",
@@ -555,7 +615,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Winter Objects",
@@ -564,7 +625,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Winter Room",
@@ -573,7 +635,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Christmas Tree",
@@ -582,7 +645,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -596,7 +660,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Abstract Paint Red",
@@ -605,7 +670,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Alaska",
@@ -614,7 +680,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Art Deco",
@@ -623,7 +690,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Astro Pop",
@@ -632,7 +700,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Birds of Paradise",
@@ -641,7 +710,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Blue Wave Symphony",
@@ -650,7 +720,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Blu Glitter",
@@ -659,7 +730,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Chicago",
@@ -668,7 +740,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Elements Blue",
@@ -677,7 +750,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Entropy Lavender",
@@ -686,7 +760,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Entropy Lavender Black",
@@ -695,7 +770,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Entropy Red",
@@ -704,7 +780,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Flamingo Jungle",
@@ -713,7 +790,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Galaxy Blue",
@@ -722,7 +800,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Galaxy Lavender",
@@ -731,7 +810,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Graffiti",
@@ -740,7 +820,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Manhattan",
@@ -749,7 +830,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Maze Violet",
@@ -758,7 +840,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Memphis",
@@ -767,7 +850,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Mondrian",
@@ -776,7 +860,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Olympics Green",
@@ -785,7 +870,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Olympics Grey",
@@ -794,7 +880,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "PaperBowl",
@@ -803,7 +890,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Partybowl",
@@ -812,7 +900,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Pins",
@@ -821,7 +910,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Riverside",
@@ -830,7 +920,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Skyline Green",
@@ -839,7 +930,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Skyline Red",
@@ -848,7 +940,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Tribal Lines",
@@ -857,7 +950,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": true
         },
         {
           "name": "Tribal Motif",
@@ -866,7 +960,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": true
         },
         {
           "name": "Tribal Shapes",
@@ -875,7 +970,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": true
         },
         {
           "name": "Theater",
@@ -884,7 +980,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Winter Athletes",
@@ -893,7 +990,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Winter Champions",
@@ -902,7 +1000,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -916,7 +1015,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Magic Triangle Plus",
@@ -925,7 +1025,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bokeh Blue Dark",
@@ -934,7 +1035,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bokeh Violet Dark",
@@ -943,7 +1045,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Competitive Grids",
@@ -952,7 +1055,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Dots Dark",
@@ -961,7 +1065,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Head to Head",
@@ -970,7 +1075,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Miro Red Dark",
@@ -979,7 +1085,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Miro Yellow Dark",
@@ -988,7 +1095,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Pillars Dark",
@@ -997,7 +1105,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Stripes Dark",
@@ -1006,7 +1115,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -1020,7 +1130,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Christmas",
@@ -1029,7 +1140,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Cities",
@@ -1038,7 +1150,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Cosmo",
@@ -1047,7 +1160,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Disco",
@@ -1056,7 +1170,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Fluids",
@@ -1065,7 +1180,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Japan Culture",
@@ -1074,7 +1190,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Japan Neko",
@@ -1083,7 +1200,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Little Lights",
@@ -1092,7 +1210,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Nature",
@@ -1101,7 +1220,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Sea",
@@ -1110,7 +1230,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Seasons",
@@ -1119,7 +1240,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Solar System",
@@ -1128,7 +1250,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Sport",
@@ -1137,7 +1260,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Valentine Hearts",
@@ -1146,7 +1270,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -1160,7 +1285,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Façade Interactive Ball Lights (1 and 2)",
@@ -1169,7 +1295,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Façade Identity (Logo)",
@@ -1178,7 +1305,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Lighting Integration",
@@ -1187,7 +1315,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Dark Mode",
@@ -1196,7 +1325,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Custom Pictures",
@@ -1205,7 +1335,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Custom Content (Video/Images)",
@@ -1214,7 +1345,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Billboards/External Live Video",
@@ -1223,7 +1355,8 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Scheduler",
@@ -1232,7 +1365,8 @@
           "sub": true,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Playlists",
@@ -1241,7 +1375,18 @@
           "sub": false,
           "superTouch": false,
           "neofi": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
+        },
+        {
+          "name": "Photo Pop",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": true,
+          "isNew": true
         }
       ]
     }
@@ -1258,7 +1403,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "80's Christmas",
@@ -1268,7 +1414,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "80's Halloween",
@@ -1278,7 +1425,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Amplify",
@@ -1288,7 +1436,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Avatar Alley",
@@ -1298,7 +1447,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Battle on the Lanes",
@@ -1308,7 +1458,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Birthday",
@@ -1318,7 +1469,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Bowlin' Hood",
@@ -1328,7 +1480,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Celebration",
@@ -1338,7 +1491,8 @@
           "valueSub": true,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Christmas Joy",
@@ -1348,7 +1502,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Classic",
@@ -1358,7 +1513,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Doubles & Trios",
@@ -1368,7 +1524,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Fairy Tales",
@@ -1378,7 +1535,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Flames",
@@ -1388,7 +1546,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Hallopin",
@@ -1398,7 +1557,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Head to Head",
@@ -1408,7 +1568,8 @@
           "valueSub": true,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Lane Duel",
@@ -1418,7 +1579,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Monster Factory",
@@ -1428,7 +1590,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Oceano",
@@ -1438,7 +1601,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "PBA",
@@ -1448,7 +1612,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Prehistorica",
@@ -1458,7 +1623,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Selfie Grids",
@@ -1468,7 +1634,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Signature Grids",
@@ -1478,7 +1645,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Training Camp",
@@ -1488,7 +1656,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": true
         },
         {
           "name": "YouToons",
@@ -1498,7 +1667,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -1513,7 +1683,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "HyperBowl Pro",
@@ -1523,7 +1694,8 @@
           "valueSub": false,
           "neofi": true,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "HyperSquad",
@@ -1533,7 +1705,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "HyperActive",
@@ -1543,7 +1716,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Hyper Bounce & Fun",
@@ -1553,7 +1727,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": true,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -1568,7 +1743,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Best Frame",
@@ -1578,7 +1754,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Best Game",
@@ -1588,7 +1765,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Low Game",
@@ -1598,7 +1776,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "No Tap",
@@ -1608,7 +1787,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -1623,7 +1803,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Head Hunter",
@@ -1633,7 +1814,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Last Pin Standing",
@@ -1643,7 +1825,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Odd Duck",
@@ -1653,7 +1836,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Odds & Evens",
@@ -1663,7 +1847,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": false
+          "isFeature": false,
+          "isNew": false
         }
       ]
     },
@@ -1678,7 +1863,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "BES NV Identity",
@@ -1688,7 +1874,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "BES NV Navigator",
@@ -1698,7 +1885,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": true,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Bowling Memories",
@@ -1708,7 +1896,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": true,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Current Frame Scoring (WTBA)",
@@ -1718,7 +1907,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Extend Your Session",
@@ -1728,7 +1918,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": true,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Lucky Train",
@@ -1738,7 +1929,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "On-Demand Ordering",
@@ -1748,7 +1940,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": true,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "On-Lane Messaging",
@@ -1758,7 +1951,8 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
           "name": "Smart Picture Validation",
@@ -1768,7 +1962,8 @@
           "valueSub": true,
           "neofi": false,
           "superTouch": true,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": true
         },
         {
           "name": "Smart Service Call",
@@ -1778,17 +1973,19 @@
           "valueSub": false,
           "neofi": false,
           "superTouch": true,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         },
         {
-          "name": "Weleome Screens",
+          "name": "Welcome Screens",
           "besnv": true,
           "besnvSub": false,
           "value": true,
           "valueSub": false,
           "neofi": false,
           "superTouch": false,
-          "isFeature": true
+          "isFeature": true,
+          "isNew": false
         }
       ]
     }
