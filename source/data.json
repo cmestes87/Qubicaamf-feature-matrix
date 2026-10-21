@@ -1404,7 +1404,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "80's Christmas",
@@ -1415,7 +1416,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         },
         {
           "name": "80's Halloween",
@@ -1426,7 +1428,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         },
         {
           "name": "Amplify",
@@ -1437,7 +1440,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Avatar Alley",
@@ -1448,7 +1452,8 @@
           "neofi": true,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Battle on the Lanes",
@@ -1459,7 +1464,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Birthday",
@@ -1470,7 +1476,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Bowlin' Hood",
@@ -1481,7 +1488,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Celebration",
@@ -1492,7 +1500,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Christmas Joy",
@@ -1503,7 +1512,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Classic",
@@ -1514,7 +1524,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Doubles & Trios",
@@ -1525,7 +1536,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         },
         {
           "name": "Fairy Tales",
@@ -1536,7 +1548,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Flames",
@@ -1547,7 +1560,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Hallopin",
@@ -1558,7 +1572,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Head to Head",
@@ -1569,7 +1584,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Lane Duel",
@@ -1580,7 +1596,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Monster Factory",
@@ -1591,7 +1608,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Oceano",
@@ -1602,7 +1620,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "PBA",
@@ -1613,7 +1632,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         },
         {
           "name": "Prehistorica",
@@ -1624,7 +1644,8 @@
           "neofi": true,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Selfie Grids",
@@ -1635,7 +1656,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Signature Grids",
@@ -1646,7 +1668,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Training Camp",
@@ -1657,7 +1680,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": false,
-          "isNew": true
+          "isNew": true,
+          "addedAfterLaunch": true
         },
         {
           "name": "YouToons",
@@ -1668,7 +1692,8 @@
           "neofi": true,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         }
       ]
     },
@@ -1684,7 +1709,8 @@
           "neofi": true,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "HyperBowl Pro",
@@ -1695,7 +1721,8 @@
           "neofi": true,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "HyperSquad",
@@ -1706,7 +1733,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "HyperActive",
@@ -1717,7 +1745,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Hyper Bounce & Fun",
@@ -1728,7 +1757,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         }
       ]
     },
@@ -1744,7 +1774,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Best Frame",
@@ -1755,7 +1786,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Best Game",
@@ -1766,7 +1798,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Low Game",
@@ -1777,7 +1810,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "No Tap",
@@ -1788,7 +1822,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         }
       ]
     },
@@ -1804,7 +1839,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Head Hunter",
@@ -1815,7 +1851,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Last Pin Standing",
@@ -1826,7 +1863,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Odd Duck",
@@ -1837,7 +1875,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Odds & Evens",
@@ -1848,7 +1887,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": false,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         }
       ]
     },
@@ -1864,7 +1904,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "BES NV Identity",
@@ -1875,7 +1916,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         },
         {
           "name": "BES NV Navigator",
@@ -1886,7 +1928,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Bowling Memories",
@@ -1897,7 +1940,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": true
         },
         {
           "name": "Current Frame Scoring (WTBA)",
@@ -1908,7 +1952,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Extend Your Session",
@@ -1919,7 +1964,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Lucky Train",
@@ -1930,7 +1976,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "On-Demand Ordering",
@@ -1941,7 +1988,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "On-Lane Messaging",
@@ -1952,7 +2000,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Smart Picture Validation",
@@ -1963,7 +2012,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": true,
-          "isNew": true
+          "isNew": true,
+          "addedAfterLaunch": true
         },
         {
           "name": "Smart Service Call",
@@ -1974,7 +2024,8 @@
           "neofi": false,
           "superTouch": true,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         },
         {
           "name": "Welcome Screens",
@@ -1985,7 +2036,8 @@
           "neofi": false,
           "superTouch": false,
           "isFeature": true,
-          "isNew": false
+          "isNew": false,
+          "addedAfterLaunch": false
         }
       ]
     }

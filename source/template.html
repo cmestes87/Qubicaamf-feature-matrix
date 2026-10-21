@@ -239,6 +239,10 @@
     background: rgba(255,111,111,0.14);
     color: #FF7A7A;
   }
+  .sub-status.muted{
+    background: rgba(137,146,176,0.14);
+    color: var(--text-muted);
+  }
 
   /* ---------- Compare header ---------- */
   .compare-heads{
@@ -342,6 +346,13 @@
     line-height:1;
   }
   .chip.locked .touch-icon{ color: var(--lost); opacity: 0.7; }
+  .launch-flag{
+    display:inline-flex;
+    align-items:center;
+    color: var(--ok);
+    line-height:1;
+    flex-shrink:0;
+  }
   .new-tag{
     display:inline-flex;
     align-items:center;
@@ -584,6 +595,7 @@
     <div class="legend-item"><span class="swatch" style="background:var(--neofi)"></span> &#10022; Neo&#8209;Fi &mdash; enhanced when the center also runs the paired system</div>
     <div class="legend-item"><span class="swatch" style="background:var(--touch)"></span> Requires SuperTouch hardware</div>
     <div class="legend-item"><span class="swatch" style="background:var(--new)"></span> NEW! &mdash; recently added</div>
+    <div class="legend-item" id="legendLaunch" style="display:none"><span class="launch-flag"></span> Added after launch</div>
     <div class="legend-item">Toggle Subscription, SuperTouch, or HyperBowling off to preview what a center loses without them.</div>
   </div>
 
@@ -610,6 +622,11 @@
         <div class="switch on" id="hyperSwitch"><div class="knob"></div></div>
         <span class="sub-status" id="hyperStatus">On</span>
       </div>
+      <div class="sub-toggle" id="launchToggle">
+        <span class="label">Added since launch</span>
+        <div class="switch" id="launchSwitch"><div class="knob"></div></div>
+        <span class="sub-status muted" id="launchStatus">Hidden</span>
+      </div>
     </div>
   </div>
 
@@ -629,6 +646,8 @@
 
 <script>
 const DATA = __DATA_JSON__;
+
+const FLAG_ICON = '<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4" fill="none"></path><path d="M5 4h12l-2.5 4.5L17 13H5z"></path></svg>';
 
 const TOUCH_ICON = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>';
 
@@ -675,6 +694,7 @@ const state = {
   subscriptionOn: true,
   superTouchOn: true,
   hyperBowlingOn: true,
+  launchFlagsOn: false,   // hidden by default
   query: '',
 };
 
@@ -779,6 +799,14 @@ function renderSoloChip(item, tier){
     chip.appendChild(touch);
   }
 
+  if(state.launchFlagsOn && item.addedAfterLaunch){
+    const lf = document.createElement('span');
+    lf.className = 'launch-flag';
+    lf.innerHTML = FLAG_ICON;
+    lf.title = 'Added after launch';
+    chip.appendChild(lf);
+  }
+
   if(locked){
     chip.title = 'Lost without ' + reasons.join(' and ');
   }
@@ -856,6 +884,13 @@ function renderCompareRow(item){
     touch.innerHTML = TOUCH_ICON;
     touch.title = (touchRequired && !state.superTouchOn) ? 'Lost without SuperTouch hardware' : 'Requires SuperTouch hardware';
     fname.appendChild(touch);
+  }
+  if(state.launchFlagsOn && item.addedAfterLaunch){
+    const lf = document.createElement('span');
+    lf.className = 'launch-flag';
+    lf.innerHTML = FLAG_ICON;
+    lf.title = 'Added after launch';
+    fname.appendChild(lf);
   }
   row.appendChild(fname);
 
@@ -939,6 +974,21 @@ function renderTouchToggle(){
   sw.classList.toggle('on', state.superTouchOn);
   status.textContent = state.superTouchOn ? 'Installed' : 'Not Installed';
   status.classList.toggle('off', !state.superTouchOn);
+}
+
+function renderLaunchToggle(){
+  const sw = document.getElementById('launchSwitch');
+  const status = document.getElementById('launchStatus');
+  sw.classList.toggle('on', state.launchFlagsOn);
+  status.textContent = state.launchFlagsOn ? 'Shown' : 'Hidden';
+  status.classList.toggle('muted', !state.launchFlagsOn);
+  // Launch data only exists for BES NV, so hide the control on the Neoverse tab.
+  const isBes = state.family === 'besnv';
+  document.getElementById('launchToggle').style.display = isBes ? '' : 'none';
+  const legend = document.getElementById('legendLaunch');
+  legend.style.display = (isBes && state.launchFlagsOn) ? '' : 'none';
+  const lg = legend.querySelector('.launch-flag');
+  if(!lg.firstChild) lg.innerHTML = FLAG_ICON;
 }
 
 function renderHyperToggle(){
@@ -1067,6 +1117,7 @@ function render(){
   renderSubToggle();
   renderTouchToggle();
   renderHyperToggle();
+  renderLaunchToggle();
   renderCounters();
   if(state.mode === 'compare'){
     renderCompare();
@@ -1092,6 +1143,11 @@ document.getElementById('subSwitch').addEventListener('click', ()=>{
 
 document.getElementById('touchSwitch').addEventListener('click', ()=>{
   state.superTouchOn = !state.superTouchOn;
+  render();
+});
+
+document.getElementById('launchSwitch').addEventListener('click', ()=>{
+  state.launchFlagsOn = !state.launchFlagsOn;
   render();
 });
 

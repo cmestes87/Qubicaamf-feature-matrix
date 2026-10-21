@@ -56,23 +56,52 @@ for r in rows:
     })
 
 # ---- BES NV ----
-# Sheet2, columns: Environments | BES NV | Requires Subscription | BES NV Value | Requires Subscription | Neo-Fi | Requires SuperTouch | Environment | Feature | New
+# Sheet2. Columns are located by HEADER NAME (not position), so inserting a new column
+# anywhere won't silently shift the data. Expected headers:
+#   Environments | BES NV | Requires Subscription | BES NV Value | Requires Subscription |
+#   Added After Launch | Neo-Fi | Requires SuperTouch | Environment | Feature | New
+# "Requires Subscription" appears twice: the first belongs to BES NV, the second to BES NV Value.
 # Category header rows (e.g. "HyperBowling", "Classic Games") have a name in col A and every other column empty.
 # Rows before the first named category header belong to "Environments".
 wb2 = openpyxl.load_workbook(BESNV_XLSX, data_only=True)
 ws2 = wb2["Sheet2"]
 rows2 = list(ws2.iter_rows(values_only=True))
 
+header_row = next(r for r in rows2 if r and r[0] == "Environments" and r[1] == "BES NV")
+cols = {}
+for idx, h in enumerate(header_row):
+    if h is None:
+        continue
+    cols.setdefault(str(h).strip(), []).append(idx)
+
+def col(name, nth=0):
+    try:
+        return cols[name][nth]
+    except (KeyError, IndexError):
+        return None
+
+C_BESNV, C_BESNV_SUB = col("BES NV"), col("Requires Subscription", 0)
+C_VALUE, C_VALUE_SUB = col("BES NV Value"), col("Requires Subscription", 1)
+C_NEOFI, C_TOUCH = col("Neo-Fi"), col("Requires SuperTouch")
+C_FEATURE, C_NEW = col("Feature"), col("New")
+C_LAUNCH = col("Added After Launch")  # optional; absent in older sheets
+required = {"BES NV": C_BESNV, "BES NV Value": C_VALUE, "Neo-Fi": C_NEOFI,
+            "Requires SuperTouch": C_TOUCH, "Feature": C_FEATURE, "New": C_NEW}
+missing = [k for k, v in required.items() if v is None]
+if missing or C_BESNV_SUB is None or C_VALUE_SUB is None:
+    raise SystemExit(f"BES NV sheet is missing expected columns: {missing or 'Requires Subscription x2'}")
+
+def cell(r, i):
+    return clean(r[i]) if i is not None and i < len(r) else None
+
 besnv_categories = []
 cur = None
 for r in rows2:
-    name, besnv, besnv_sub, value, value_sub, neofi, supertouch, environment, feature, new = [clean(x) for x in r]
-    if name is None:
+    name = cell(r, 0)
+    if name is None or r is header_row:
         continue
-    if name == "Environments" and besnv == "BES NV":
-        continue  # header row
-    if (besnv is None and value is None and besnv_sub is None and value_sub is None and neofi is None
-            and supertouch is None and environment is None and feature is None and new is None):
+    flag_values = [cell(r, i) for i in range(1, len(r))]
+    if all(v is None for v in flag_values):
         cur = {"name": name, "items": []}
         besnv_categories.append(cur)
         continue
@@ -81,14 +110,15 @@ for r in rows2:
         besnv_categories.append(cur)
     cur["items"].append({
         "name": name,
-        "besnv": bool(besnv),
-        "besnvSub": bool(besnv_sub),
-        "value": bool(value),
-        "valueSub": bool(value_sub),
-        "neofi": bool(neofi),
-        "superTouch": bool(supertouch),
-        "isFeature": bool(feature),
-        "isNew": bool(new),
+        "besnv": bool(cell(r, C_BESNV)),
+        "besnvSub": bool(cell(r, C_BESNV_SUB)),
+        "value": bool(cell(r, C_VALUE)),
+        "valueSub": bool(cell(r, C_VALUE_SUB)),
+        "neofi": bool(cell(r, C_NEOFI)),
+        "superTouch": bool(cell(r, C_TOUCH)),
+        "isFeature": bool(cell(r, C_FEATURE)),
+        "isNew": bool(cell(r, C_NEW)),
+        "addedAfterLaunch": bool(cell(r, C_LAUNCH)),
     })
 
 out = {"neoverse": neoverse_categories, "besnv": besnv_categories}
