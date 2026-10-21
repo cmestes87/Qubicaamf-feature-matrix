@@ -349,6 +349,16 @@
           "isNew": false
         },
         {
+          "name": "Festive Skulls",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
+        },
+        {
           "name": "Fruits",
           "interactive": true,
           "standalone": true,
@@ -377,6 +387,16 @@
           "neofi": false,
           "isFeature": false,
           "isNew": false
+        },
+        {
+          "name": "Halloween Dance",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
         },
         {
           "name": "Japan Bamboo",
@@ -824,6 +844,36 @@
           "isNew": false
         },
         {
+          "name": "HR Full Count",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
+        },
+        {
+          "name": "HR Grand Slam",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
+        },
+        {
+          "name": "HR Stolen Base",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
+        },
+        {
           "name": "Manhattan",
           "interactive": true,
           "standalone": true,
@@ -944,7 +994,7 @@
           "isNew": false
         },
         {
-          "name": "Tribal Lines",
+          "name": "TD End Zone",
           "interactive": true,
           "standalone": true,
           "sub": true,
@@ -952,6 +1002,36 @@
           "neofi": false,
           "isFeature": false,
           "isNew": true
+        },
+        {
+          "name": "TD Fourth Down",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
+        },
+        {
+          "name": "TD Game Day",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
+        },
+        {
+          "name": "Tribal Lines",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": false
         },
         {
           "name": "Tribal Motif",
@@ -961,7 +1041,7 @@
           "superTouch": false,
           "neofi": false,
           "isFeature": false,
-          "isNew": true
+          "isNew": false
         },
         {
           "name": "Tribal Shapes",
@@ -971,7 +1051,7 @@
           "superTouch": false,
           "neofi": false,
           "isFeature": false,
-          "isNew": true
+          "isNew": false
         },
         {
           "name": "Theater",
@@ -1027,6 +1107,16 @@
           "neofi": false,
           "isFeature": false,
           "isNew": false
+        },
+        {
+          "name": "Magic Triangle Classic",
+          "interactive": true,
+          "standalone": true,
+          "sub": true,
+          "superTouch": false,
+          "neofi": false,
+          "isFeature": false,
+          "isNew": true
         },
         {
           "name": "Bokeh Blue Dark",
