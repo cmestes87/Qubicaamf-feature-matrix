@@ -844,36 +844,6 @@
           "isNew": false
         },
         {
-          "name": "HR Full Count",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "superTouch": false,
-          "neofi": false,
-          "isFeature": false,
-          "isNew": true
-        },
-        {
-          "name": "HR Grand Slam",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "superTouch": false,
-          "neofi": false,
-          "isFeature": false,
-          "isNew": true
-        },
-        {
-          "name": "HR Stolen Base",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "superTouch": false,
-          "neofi": false,
-          "isFeature": false,
-          "isNew": true
-        },
-        {
           "name": "Manhattan",
           "interactive": true,
           "standalone": true,
@@ -992,36 +962,6 @@
           "neofi": false,
           "isFeature": false,
           "isNew": false
-        },
-        {
-          "name": "TD End Zone",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "superTouch": false,
-          "neofi": false,
-          "isFeature": false,
-          "isNew": true
-        },
-        {
-          "name": "TD Fourth Down",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "superTouch": false,
-          "neofi": false,
-          "isFeature": false,
-          "isNew": true
-        },
-        {
-          "name": "TD Game Day",
-          "interactive": true,
-          "standalone": true,
-          "sub": true,
-          "superTouch": false,
-          "neofi": false,
-          "isFeature": false,
-          "isNew": true
         },
         {
           "name": "Tribal Lines",
