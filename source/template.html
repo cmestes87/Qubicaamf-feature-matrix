@@ -13,8 +13,8 @@
     --panel-alt: #1D2440;
     --border: #2A3152;
     --text: #EDEFF7;
-    --text-muted: #8992B0;
-    --text-faint: #565E7E;
+    --text-muted: #A9B1CE;
+    --text-faint: #7F88AB;
 
     --amber: #FFB454;      /* BES NV family accent */
     --amber-dim: #7A5A2E;
@@ -23,7 +23,7 @@
 
     --ok: #3DDC97;
     --neofi: #FF6FC6;
-    --lost: #F0708A;
+    --lost: #F77F98;
     --lost-dim: #5C3440;
     --touch: #5EC8FF;
     --new: #FFE066;
@@ -265,10 +265,10 @@
   .category-title{
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--current-accent, var(--amber));
     letter-spacing: 0.02em;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
     display:flex;
     align-items:center;
     gap: 10px;
@@ -282,40 +282,41 @@
   .category-count{
     font-family: var(--font-body);
     font-weight: 500;
-    color: var(--text-faint);
-    font-size: 12px;
+    color: var(--text-muted);
+    font-size: 13px;
   }
 
   /* solo chip grid */
   .chip-grid{
     display:flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
   }
   .chip{
     position:relative;
     display:flex;
     align-items:center;
-    gap: 7px;
-    padding: 9px 13px;
+    gap: 9px;
+    padding: 11px 16px;
     border-radius: var(--radius);
     background: var(--panel);
-    border: 1px solid var(--border);
-    font-size: 13.5px;
+    border: 1px solid #353D63;
+    font-size: 15.5px;
     font-weight: 500;
+    line-height: 1.25;
     color: var(--text);
     transition: opacity .2s ease, border-color .2s ease;
   }
   .chip .dot{
-    width: 7px; height: 7px;
+    width: 9px; height: 9px;
     border-radius: 50%;
     background: var(--ok);
     flex-shrink:0;
   }
   .chip.locked{
-    opacity: 0.7;
+    opacity: 1;
     color: var(--lost);
-    background: rgba(240,112,138,0.07);
+    background: rgba(240,112,138,0.10);
     border-color: var(--lost-dim);
   }
   .chip.locked .dot{ background: var(--lost); }
@@ -324,15 +325,15 @@
   .chip.neofi .dot{ background: var(--neofi); }
   .chip .spark{
     color: var(--neofi);
-    font-size: 12px;
+    font-size: 15px;
     line-height:1;
   }
-  .chip.locked .spark{ color: var(--lost); opacity: 0.85; }
+  .chip.locked .spark{ color: var(--lost); opacity: 1; }
   .chip .sub-flag{
-    font-size: 10px;
+    font-size: 11.5px;
     color: var(--amber);
     border: 1px solid var(--amber-dim);
-    padding: 1px 5px;
+    padding: 2px 6px;
     border-radius: 5px;
     font-weight:600;
     letter-spacing: .02em;
@@ -342,10 +343,10 @@
     display:inline-flex;
     align-items:center;
     color: var(--touch);
-    opacity: 0.85;
+    opacity: 1;
     line-height:1;
   }
-  .chip.locked .touch-icon{ color: var(--lost); opacity: 0.7; }
+  .chip.locked .touch-icon{ color: var(--lost); opacity: 1; }
   .launch-flag{
     display:inline-flex;
     align-items:center;
@@ -356,11 +357,11 @@
   .new-tag{
     display:inline-flex;
     align-items:center;
-    font-size: 9.5px;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: .04em;
     line-height: 1;
-    padding: 3px 6px;
+    padding: 3px 7px;
     border-radius: 999px;
     background: var(--new);
     color: #1B1600;
@@ -373,9 +374,9 @@
     grid-template-columns: 1fr 118px 118px;
     gap: 10px;
     align-items:center;
-    padding: 9px 14px;
+    padding: 11px 14px;
     border-radius: 8px;
-    font-size: 13.5px;
+    font-size: 15.5px;
   }
   .compare-row:nth-child(odd){ background: rgba(255,255,255,0.02); }
   .compare-row .fname{
@@ -383,7 +384,7 @@
     align-items:center;
     gap: 8px;
   }
-  .compare-row .fname .spark{ color: var(--neofi); font-size: 12px; }
+  .compare-row .fname .spark{ color: var(--neofi); font-size: 15px; }
   .compare-cell{ text-align:center; }
   .mark{
     display:inline-flex;
@@ -647,9 +648,9 @@
 <script>
 const DATA = __DATA_JSON__;
 
-const FLAG_ICON = '<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4" fill="none"></path><path d="M5 4h12l-2.5 4.5L17 13H5z"></path></svg>';
+const FLAG_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4" fill="none"></path><path d="M5 4h12l-2.5 4.5L17 13H5z"></path></svg>';
 
-const TOUCH_ICON = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>';
+const TOUCH_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>';
 
 const FAMILY_CONFIG = {
   besnv: {
