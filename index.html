@@ -407,7 +407,7 @@
     flex-wrap: wrap;
   }
   .counter-block{
-    flex: 1;
+    flex: 1 1 auto;
     min-width: 220px;
     background: var(--panel);
     border: 1px solid var(--border);
@@ -534,6 +534,8 @@
   }
 
   @media (max-width: 720px){
+    .counter-block{ min-width: 0; flex: 1 1 100%; }
+    .counter-block-label{ white-space: normal; }
     header{ flex-direction: column; align-items: flex-start; }
     .controls{ flex-direction: column; align-items: flex-start; }
     .compare-heads, .compare-row{ grid-template-columns: 1fr 70px 70px; }
@@ -585,6 +587,19 @@
         <div class="counter-tier" id="featureTierB">
           <span class="counter-tier-label" id="featureTierLabelB"></span>
           <div class="vane-counter" id="featureVaneB"></div>
+        </div>
+      </div>
+    </div>
+    <div class="counter-block" id="launchBlock">
+      <div class="counter-block-label">Added Since Launch</div>
+      <div class="counter-tiers">
+        <div class="counter-tier" id="launchTierA">
+          <span class="counter-tier-label" id="launchTierLabelA"></span>
+          <div class="vane-counter" id="launchVaneA"></div>
+        </div>
+        <div class="counter-tier" id="launchTierB">
+          <span class="counter-tier-label" id="launchTierLabelB"></span>
+          <div class="vane-counter" id="launchVaneB"></div>
         </div>
       </div>
     </div>
@@ -1015,16 +1030,17 @@ function lockReasons(item, subRequired){
 }
 
 function countForTier(cats, tier){
-  let content = 0, feature = 0;
+  let content = 0, feature = 0, launch = 0;
   cats.forEach(cat=>{
     cat.items.forEach(item=>{
       if(!item[tier.includedKey]) return;
       const subRequired = !!item[tier.subKey];
       if(lockReasons(item, subRequired).length > 0) return; // not currently available
       if(item.isFeature) feature++; else content++;
+      if(item.addedAfterLaunch) launch++; // subset of the above; counted regardless of the flag toggle
     });
   });
-  return { content, feature };
+  return { content, feature, launch };
 }
 
 function buildVaneCounter(container){
@@ -1102,9 +1118,18 @@ function renderCounters(){
   document.getElementById('contentTierB').classList.toggle('hidden', !compareMode);
   document.getElementById('featureTierB').classList.toggle('hidden', !compareMode);
 
+  // "Added Since Launch" only exists for BES NV; always shown there, independent of the flag toggle.
+  const isBes = state.family === 'besnv';
+  document.getElementById('launchBlock').style.display = isBes ? '' : 'none';
+  document.getElementById('launchTierLabelA').textContent = compareMode ? activeTier.label : '';
+  document.getElementById('launchTierLabelB').textContent = compareMode ? tB.label : '';
+  document.getElementById('launchTierB').classList.toggle('hidden', !compareMode);
+
   setVaneValue(document.getElementById('contentVaneA'), countsA.content);
   setVaneValue(document.getElementById('featureVaneA'), countsA.feature);
+  if(isBes) setVaneValue(document.getElementById('launchVaneA'), countsA.launch);
   if(compareMode){
+    if(isBes) setVaneValue(document.getElementById('launchVaneB'), countsB.launch);
     setVaneValue(document.getElementById('contentVaneB'), countsB.content);
     setVaneValue(document.getElementById('featureVaneB'), countsB.feature);
   }
@@ -1164,7 +1189,7 @@ document.getElementById('searchInput').addEventListener('input', (e)=>{
 
 // init
 document.querySelector('.family-tab[data-family="besnv"]').classList.add('active');
-['contentVaneA','contentVaneB','featureVaneA','featureVaneB'].forEach(id=>{
+['contentVaneA','contentVaneB','featureVaneA','featureVaneB','launchVaneA','launchVaneB'].forEach(id=>{
   buildVaneCounter(document.getElementById(id));
 });
 render();
